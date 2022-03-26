@@ -9,13 +9,38 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">{{mensagem}}</div>
+    <div id="app">
+        <p>{{mensagem}}</p>
+        <p>Valor Total: {{valorTotal}}</p>
+        <p>Logado: {{logado}}</p>
+        <p>Hobbies: {{hobbies}}</p>
+        <p>Perfil de : {{perfil.nome}}</p>
+        <p>Idade: {{perfil.idade}}</p>
+        <p>Site: {{perfil.site}}</p>
+    </div>
 
     <script>
         const vm = new Vue({
             el :'#app',
             data: {
-                mensagem: 'Primeiro template controlado pelo Vue'
+                mensagem: 'Primeiro template controlado pelo Vue',
+                valorTotal: 150.50,
+                logado: true,
+                hobbies: [
+                    'Comer',
+                    'Domir',
+                    'Jogar',
+                    'Programar'
+                ],
+                perfil:{
+                    nome: 'Alexandre Rogério',
+                    site: 'https://github.com/xandaosilva',
+                    idade: '29',
+                    certificacoes: [
+                        { nome: 'Curso 1', cargaHoraria: '50 horas' },
+                        { nome: 'Curso 2', cargaHoraria: '70 horas' }
+                    ]
+                }
             }
         });
     </script>
