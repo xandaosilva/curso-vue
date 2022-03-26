@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>Resultado da função somar: {{somar()}}</p>
+        <p>Resultado da função subtrair: {{subtrair()}}</p>
+        <p>Resultado da função multiplicar: {{multiplicar()}}</p>
+        <p>Resultado da função dividir: {{dividir()}}</p>
+        <p>Resultado da função numeroAleatorio: {{numeroAleatorio()}}</p>
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                somar : function somar(){
+                    return 10 + 12;
+                },
+                subtrair: function(){
+                    return 100 - 30;
+                },
+                multiplicar: () => { return 11 * 3 },
+                dividir(){
+                    return 50 / 2;
+                },
+                numeroAleatorio: function numeroAleatorio(){
+                    return Math.floor(Math.random() * 10);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
