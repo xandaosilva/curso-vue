@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="site" target="_blank">Site</a>
+        <p v-bind:class="cor">Entendendo a diretiva V-bind</p>
+        <input type="text" v-bind:placeholder="instrucao" v-bind:value="valor">
+        <input type="checkbox" v-bind:checked="check">
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                site: "https://www.google.com",
+                cor: "azul",
+                instrucao: 'Preencha o campo',
+                valor: "V-Bind",
+                check: true
+            },
+            methods: {}
+        });
+    </script>
+</body>
+</html>
