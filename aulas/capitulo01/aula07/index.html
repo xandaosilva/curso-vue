@@ -11,7 +11,7 @@
 <body>
     <div id="app">
         <input type="text" @keyup="printText('send param', 5, xyz)">
-        <button @click="alertMessage()">Clique aqui</button>
+        <button @click="alertMessage($event)">Clique aqui</button>
     </div>
     
     <script>
@@ -26,8 +26,9 @@
                     console.log(number);
                     console.log(xyz);
                 },
-                alertMessage(){
+                alertMessage(e){
                     alert('Teste button');
+                    console.log(e);
                 }
             }
         });
