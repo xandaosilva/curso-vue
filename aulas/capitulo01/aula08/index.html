@@ -10,21 +10,17 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" @keyup="printText('send param', 5, xyz)">
+        <input type="text" v-on:keyup="printText()">
         <button @click="alertMessage()">Clique aqui</button>
     </div>
     
     <script>
         const vm = new Vue({
             el: '#app',
-            data: {
-                xyz: true
-            },
+            data: {},
             methods: {
-                printText(text, number, xyz){
-                    console.log(text);
-                    console.log(number);
-                    console.log(xyz);
+                printText(){
+                    console.log('Teste');
                 },
                 alertMessage(){
                     alert('Teste button');
