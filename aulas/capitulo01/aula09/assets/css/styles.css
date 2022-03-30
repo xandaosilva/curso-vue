@@ -1,0 +1,34 @@
+.borda{
+    border: solid 1px blue;
+}
+
+.div-principal{
+    width: 200px;
+    height: 200px;
+}
+
+.div-comum{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.azul{
+    background-color: blue;
+    color: white;
+}
+
+.branco{
+    background-color: white;
+    color: black;
+}
+
+.verde{
+    background-color: green;
+    color: white;
+}
+
+.vermelho{
+    background-color: red;
+    color: white;
+}
