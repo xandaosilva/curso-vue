@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a href="https://www.google.com" target="_blank" @click.prevent="prevenirComportamentoPadrao()">Google</a>
+        <p>Mensagem: {{ msg }}</p>
+        <p><button @click.once="executarUmaVez()">Executar</button></p>
+        <p>Cliques: {{ cliques }}</p>
+        <form @submit.prevent.once="prevenirUmaVez()">
+            <button type="submit">Enviar</button>
+        </form>
+        <p>Formulário: {{formulario}}</p>
+        <p><input type="text" @keyup.x="capturandoTeclas($event)"></p>
+        <p>Teclas: {{ teclas }}</p>
+    </div>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>
