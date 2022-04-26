@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="text" id="inputTexto">
+            <select id="opcoes">
+                <option value="A">Opção 1</options>
+                <option value="B">Opção 2</options>
+                <option value="C">Opção 3</options>
+            </select>
+            <p id="paragrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat inventore cupiditate saepe ab qui nihil itaque quas esse distinctio ducimus!</p>
+            <div id="bloco">Conteúdo interno da div</div>
+            <button @click="selecionarElementoFilho()">Clique aqui</button>
+        </div>
+    </div>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>
