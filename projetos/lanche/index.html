@@ -144,7 +144,27 @@
                     <div class="row mt-2">
                         <div class="col d-flex justify-content-between">
                             <button class="btn btn-warning" @click="etapa -= 1">Voltar para o lanche</button>
-                            <button class="btn btn-success">Confirmar o lanche</button>
+                            <button class="btn btn-success" @click="confirmarPedido()">Confirmar o lanche</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" v-if="etapa == 3">
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">Pedido confirmado com sucesso</div>
+                                <div class="card-body">
+                                    <p>Agora é só aguardar a entrega</p>
+                                    <p>Te chamaremos em breve &#128578</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col d-flex justify-content-between">
+                            <button class="btn btn-primary" @click="etapa = 1">Repetir o pedido</button>
+                            <button class="btn btn-success" @click="novoPedido()">Novo pedido</button>
                         </div>
                     </div>
                 </div>

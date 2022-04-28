@@ -11,12 +11,27 @@ const vm = new Vue({
     },
     methods: {
         fazerPedido(){
-            if(this.inputTipoDePao && this.inputHamburger){
+            if(this.inputTipoDePao && this.inputHamburger)
                 this.etapa = 2;
-            }
-            else{
+            else 
                 alert("Você deve selecionar pelo menos um tipo de pão e um hambúrger.");
+        },
+        confirmarPedido(){
+            if(this.inputNome && this.inputEndereco){
+                this.etapa = 3;
+                setTimeout(() => this.novoPedido(), 7000);
             }
+            else
+                alert("Informe seu nome e seu endereço.");
+        },
+        novoPedido(){
+            this.etapa = 1;
+            this.inputTipoDePao = "";
+            this.inputSaladas = [];
+            this.inputMolhos = [];
+            this.inputHamburger = "";
+            this.inputNome = "";
+            this.inputEndereco = "";
         }
     },
     computed: {
