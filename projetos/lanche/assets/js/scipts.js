@@ -9,7 +9,13 @@ const vm = new Vue({
         alface(){
             return "assets/img/padrao/alface.png";
         },
-        molho(){
+        ketchup(){
+            return "assets/img/padrao/molho.png";
+        },
+        maionese(){
+            return "assets/img/padrao/molho.png";
+        },
+        mostarda(){
             return "assets/img/padrao/molho.png";
         },
         hamburger(){
