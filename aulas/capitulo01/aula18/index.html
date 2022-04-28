@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <h4>Adicionar pacientes</h4>
+            <span>Nome: </span><input type="text" id="inputNome">
+            <span>Idade: </span><input type="text" id="inputIdade">
+            <span>Plano: </span><input type="text" id="inputPlano">
+            <button @click="adicionarPaciente()">Adicionar</button>
+        </div>
+
+        <hr>
+
+        <div>
+            <h4>Último paciente cadastrado</h4>
+            <p v-if="pacientes.length > 0">{{ultimoPaciente}}</p>
+        </div>
+
+        <hr>
+        
+        <div>
+            <h4>Pacientes do plano Ouro</h4>
+            <p v-for="p in pacientesPlanoOuro">{{p.nome}}</p>
+        </div>
+
+        <hr>
+
+        <div>
+            <h4>Pacientes adicionados</h4>
+            <p v-for="p in pacientes">Nome: {{p.nome}} - Idade: {{p.idade}} - Plano: {{p.plano}}</p>
+        </div>
+    </div>
+    <script src="assets/js/scipts.js"></script>
+</body>
+</html>
