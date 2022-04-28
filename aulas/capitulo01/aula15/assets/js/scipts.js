@@ -1,5 +1,14 @@
 const vm = new Vue({
     el: "#app",
-    data: {},
-    methods: {}
+    data: {
+        saldo: 2222
+    },
+    methods: {
+        creditar(){
+            this.saldo +=  parseFloat(valor.value);
+        },
+        debitar(){
+            this.saldo -= parseFloat(valor.value);
+        }
+    }
 })
