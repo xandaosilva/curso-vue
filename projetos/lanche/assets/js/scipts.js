@@ -7,7 +7,8 @@ const vm = new Vue({
         inputHamburger: "",
         etapa: 1,
         inputNome: "",
-        inputEndereco: ""
+        inputEndereco: "",
+        novoPedidoAssincrono: null
     },
     methods: {
         fazerPedido(){
@@ -19,7 +20,7 @@ const vm = new Vue({
         confirmarPedido(){
             if(this.inputNome && this.inputEndereco){
                 this.etapa = 3;
-                setTimeout(() => this.novoPedido(), 7000);
+                this.novoPedidoAssincrono = setTimeout(() => this.novoPedido(), 7000);
             }
             else
                 alert("Informe seu nome e seu endereço.");
@@ -32,7 +33,7 @@ const vm = new Vue({
             this.inputHamburger = "";
             this.inputNome = "";
             this.inputEndereco = "";
-        }
+        },
     },
     computed: {
         pao(){
@@ -76,6 +77,12 @@ const vm = new Vue({
                 default:
                     return "assets/img/padrao/hamburguer.png";
             }
+        }
+    },
+    watch: {
+        etapa(novoValor){
+            if(novoValor === 1)
+                clearTimeout(this.novoPedidoAssincrono);
         }
     }
 })
