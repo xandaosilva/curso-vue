@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="n in 10">{{n}}</li>
+        </ul>
+
+        <br><hr><br>
+
+        <ul>
+            <li v-for="(curso, chave) in cursos" v-text="chave + ' - ' + curso"></li>
+        </ul>
+
+        <br><hr><br>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="({titulo, descricao}, key) in cursos2">
+                    <td>{{key}}</td>
+                    <td>{{titulo}}</td>
+                    <td>{{descricao}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><hr><br>
+
+        <ul id="listPubli">
+            <li v-for="p in publicacoes" :key="p.id">
+                <div id="descriptioPubli">
+                    <h2>{{p.publicacao}}</h2>
+                    <hr>
+                    <input type="text">
+                </div>
+            </li>
+        </ul>
+        <button @click="misturarArray()">Misturar publicações</button>
+
+        <br><hr><br>
+
+        <ul>
+            <li v-for="c in comentarios">{{c.comentario}}</li>
+        </ul>
+        <button @click="adicionarElemento()">Adicionar</button>
+        <button @click="removerElemento()">Remover</button>
+        <button @click="modificarElemento()">Atualizar</button>
+    </div>
+    <script src="assets/js/scipts.js"></script>
+</body>
+</html>
