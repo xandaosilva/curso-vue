@@ -2,6 +2,9 @@ const vm = new Vue({
     el: "#app",
     data: {
         inputTipoDePao: "",
+        inputSaladas: [],
+        inputMolhos: [],
+        inputHamburger: "",
     },
     methods: {},
     computed: {
@@ -16,19 +19,36 @@ const vm = new Vue({
             }
         },
         alface(){
+            if(this.inputSaladas.includes("alface"))
+                return "assets/img/alface.png";
             return "assets/img/padrao/alface.png";
         },
         ketchup(){
+            if(this.inputMolhos.includes("ketchup"))
+                return "assets/img/ketchup.png";
             return "assets/img/padrao/molho.png";
         },
         maionese(){
+            if(this.inputMolhos.includes("maionese"))
+                return "assets/img/maionese.png";
             return "assets/img/padrao/molho.png";
         },
         mostarda(){
+            if(this.inputMolhos.includes("mostarda"))
+                return "assets/img/mostarda.png";    
             return "assets/img/padrao/molho.png";
         },
         hamburger(){
-            return "assets/img/padrao/hamburguer.png";
+            switch(this.inputHamburger){
+                case "bovino":
+                    return "assets/img/bovino.png";
+                case "frango":
+                    return "assets/img/frango.png";
+                case "soja":
+                    return "assets/img/soja.png";
+                default:
+                    return "assets/img/padrao/hamburguer.png";
+            }
         }
     }
 })
