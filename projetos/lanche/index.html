@@ -20,7 +20,7 @@
     <div class="container">
         <div id="app">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6"> 
                     <div class="row mt-2">
                         <div class="col">
                             <img :src="pao[0]" alt="Pão superior">
@@ -42,11 +42,11 @@
                                 <div class="card-header">Pão</div>
                                 <div class="card-body">
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input">
+                                        <input type="radio" class="form-check-input" value="gergelim" v-model="inputTipoDePao">
                                         <label class="form-check-label">Gergelim</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input">
+                                        <input type="radio" class="form-check-input" value="australiano" v-model="inputTipoDePao">
                                         <label class="form-check-label">Australiano</label>
                                     </div>
                                 </div>

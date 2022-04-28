@@ -1,10 +1,19 @@
 const vm = new Vue({
     el: "#app",
-    data: {},
+    data: {
+        inputTipoDePao: "",
+    },
     methods: {},
     computed: {
         pao(){
-            return ["assets/img/padrao/pao_superior.png", "assets/img/padrao/pao_inferior.png"];
+            switch(this.inputTipoDePao){
+                case "gergelim":
+                    return ["assets/img/pao_gergelim_superior.png", "assets/img/pao_gergelim_inferior.png"];
+                case "australiano":
+                    return ["assets/img/pao_australiano_superior.png", "assets/img/pao_australiano_inferior.png"];
+                default:
+                    return ["assets/img/padrao/pao_superior.png", "assets/img/padrao/pao_inferior.png"];
+            }
         },
         alface(){
             return "assets/img/padrao/alface.png";
