@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/vue.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{paciente}}</p>
+        <!-- <input type="text" :value="paciente" @keyup="paciente = $event.target.value"> -->
+        <input type="text" v-model="paciente">
+
+        <hr>
+        <input type="radio" value="f" v-model="sexo">Feminino
+        <input type="radio" value="m" v-model="sexo">Masculino
+        <br>
+        {{sexo}}
+
+        <hr>
+        <select v-model="plano">
+            <option value="" disabled>Selecione um plano</option>
+            <option value="1">Ouro</option>
+            <option value="2">Prata</option>
+            <option value="3">Bronze</option>
+        </select>
+        <br>
+        {{plano}}
+
+        <hr>
+        <input type="checkbox" value="100" v-model="doencas">Asma
+        <input type="checkbox" value="101" v-model="doencas">Diabetes tipo 1
+        <input type="checkbox" value="102" v-model="doencas">Rinite
+        <br>
+        {{doencas}}
+
+        <hr>
+        <textarea name="" id="" cols="30" rows="10" v-model="diagnostico"></textarea>
+        <br>
+        {{diagnostico}}
+    </div>
+    <script src="assets/js/scipts.js"></script>
+</body>
+</html>
