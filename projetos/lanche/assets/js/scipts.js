@@ -5,8 +5,20 @@ const vm = new Vue({
         inputSaladas: [],
         inputMolhos: [],
         inputHamburger: "",
+        etapa: 1,
+        inputNome: "",
+        inputEndereco: ""
     },
-    methods: {},
+    methods: {
+        fazerPedido(){
+            if(this.inputTipoDePao && this.inputHamburger){
+                this.etapa = 2;
+            }
+            else{
+                alert("Você deve selecionar pelo menos um tipo de pão e um hambúrger.");
+            }
+        }
+    },
     computed: {
         pao(){
             switch(this.inputTipoDePao){
