@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/scipts.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Manipulando CSS com VueJS</h1>
+        <p :class="[estilo1, estilo2, { destaque: ehDestaque }]">Definindo classes com arrays</p>
+        <button @click="estilo1 = ''">Remover estilo 1</button>
+        <button @click="estilo2 = ''">Remover estilo 2</button>
+        <button @click="ehDestaque = !ehDestaque">Mudar o destaque</button>
+    </div>
+</body>
+</html>
