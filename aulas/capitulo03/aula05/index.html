@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/scipts.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <form ref="formulario">
+            <span>Nome: </span>
+            <input type="text" placeholder="Digite o seu nome" id="inputNome" ref="inputNome">
+            <br>
+            <br>
+            <span>Comentário: </span>
+            <br>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <br>
+            <br>
+            <button @click.prevent="cadastrar()">Cadastrar</button>
+        </form>
+        <hr>
+        {{ resultado }}
+    </div>
+</body>
+</html>
