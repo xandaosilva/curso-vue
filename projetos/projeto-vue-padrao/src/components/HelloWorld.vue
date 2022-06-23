@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }} - {{ variavel }}</h1>
+    <div>
+      <h1>{{ msg }} - {{ variavel }}</h1>
+      <p>Link da API: {{ url_api }}</p>
+      <p>Modo: {{ modo }}</p>
+    </div>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -32,7 +36,13 @@
 
 <script>
 export default {
-  data: () => ({ variavel: process.env.VUE_APP_MINHA_VARIAVEL_DE_AMBIENTE }),
+  data: () => (
+    { 
+      variavel: process.env.VUE_APP_MINHA_VARIAVEL_DE_AMBIENTE, 
+      url_api:  process.env.VUE_APP_API_URL,
+      modo: process.env.VUE_APP_MODO
+    }
+  ),
   name: 'HelloWorld',
   props: {
     msg: String
