@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p>Conteúdo</p>
         <Home />
         <PublicarVaga />
     </div>
