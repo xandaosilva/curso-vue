@@ -1,9 +1,6 @@
 <template>
     <div>
         <h1>Component Content</h1>
-        <p>Propriedade $style: {{ $style }}</p>
-        <div :class="$style['test-1']">Teste</div>
-        <div :id="$style['test-2']">Teste</div>
         <Home />
         <Publish />
     </div>
@@ -18,6 +15,48 @@
         components: {
             Home,
             Publish
+        },
+        methods: {
+
+        },
+        beforeCreate(){
+            console.log("Before create");
+        },
+        created() {
+            console.log("Created");
+        },
+        beforeMount() {
+            console.log("Before mount");
+        },
+        mounted() {
+            console.log("Mounted");
+        },
+        beforeUpdate() {
+            console.log("Before update");
+        },
+        updated() {
+            console.log("Updated");
+        },
+        beforeUnmount() {
+            console.log("Befora unmount");
+        },
+        unmounted() {
+            console.log("Unmounted");
+        },
+        errorCaptured() {
+            console.log("Error captured");
+        },
+        renderTracked() {
+            console.log("Render tracked");
+        },
+        renderTriggered() {
+            console.log("Render triggered");
+        },
+        activated() {
+            console.log("Activated");
+        },
+        deactivated() {
+            console.log("Deactivated");
         }
     }
 </script>
