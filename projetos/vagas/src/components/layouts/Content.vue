@@ -3,7 +3,9 @@
         <h1>Component Content</h1>
         <button @click="content = 'home'">Home</button>
         <button @click="content = 'publish'">Publicar Vaga</button>
-        <component :is="content" />
+        <KeepAlive>
+            <component :is="content" />
+        </KeepAlive>
     </div>
 </template>
 
