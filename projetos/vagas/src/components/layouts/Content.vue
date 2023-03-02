@@ -1,8 +1,9 @@
 <template>
     <div>
         <h1>Component Content</h1>
-        <Home />
-        <Publish />
+        <button @click="content = 'home'">Home</button>
+        <button @click="content = 'publish'">Publicar Vaga</button>
+        <component :is="content" />
     </div>
 </template>
 
@@ -16,6 +17,9 @@
             Home,
             Publish
         },
+        data: () => ({
+            content: "home"
+        }),
         methods: {
 
         },
