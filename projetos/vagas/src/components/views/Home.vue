@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Home</p>
+        <h1>Component Home</h1>
     </div>
 </template>
 
@@ -10,4 +10,4 @@
     }
 </script>
 
-<style></style>
+<style scoped></style>
