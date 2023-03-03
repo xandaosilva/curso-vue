@@ -6,6 +6,19 @@
             </div>
         </div>
         <div class="row mt-5">
+            <div class="col-6">
+                <Vacancy />
+            </div>
+            <div class="col-6">
+                <Vacancy />
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <Vacancy />
+            </div>
+        </div>
+        <div class="row mt-5">
             <div class="col-4">
                 <Indicator title="Vagas abertas" indicator="25" bg="bg-dark" color="text-white" />
             </div>
@@ -22,12 +35,14 @@
 <script>
     import Indicator from '@/components/comuns/Indicator.vue';
     import Search from '@/components/comuns/Search.vue';
+    import Vacancy from '@/components/comuns/Vacancy.vue';
 
     export default{
         name: "Home",
         components: {
             Indicator,
-            Search
+            Search,
+            Vacancy
         },
         data: () => ({
             usersOnline: 0
