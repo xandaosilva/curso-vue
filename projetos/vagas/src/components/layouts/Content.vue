@@ -10,8 +10,8 @@
 </template>
 
 <script>
-    import Home from '@/components/views/Home.vue'
-    import Publish from '@/components/views/Publish.vue'
+    import Home from '@/components/views/Home.vue';
+    import Publish from '@/components/views/Publish.vue';
 
     export default {
         name: "Content",
