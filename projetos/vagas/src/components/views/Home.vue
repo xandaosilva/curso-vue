@@ -7,33 +7,26 @@
         </div>
         <div class="row mt-5">
             <div class="col-4">
-                <div class="h-100 p-5 rounded-3 border bg-dark text-white">
-                    <p>Vagas abertas</p>
-                    <h2>25</h2>
-                </div>
+                <Indicator />
             </div>
             <div class="col-4">
-                <div class="h-100 p-5 rounded-3 border bg-dark text-white">
-                    <p>Profissionais cadastrados</p>
-                    <h2>125</h2>
-                </div>
+                <Indicator />
             </div>
             <div class="col-4">
-                <div class="h-100 p-5 rounded-3 border bg-light text-dark">
-                    <p>Visitantes online</p>
-                    <h2>15</h2>
-                </div>
+                <Indicator />
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import Indicator from '@/components/comuns/Indicator.vue';
     import Search from '@/components/comuns/Search.vue';
 
     export default{
         name: "Home",
         components: {
+            Indicator,
             Search
         }
     }
