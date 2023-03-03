@@ -7,13 +7,13 @@
         </div>
         <div class="row mt-5">
             <div class="col-4">
-                <Indicator />
+                <Indicator title="Vagas abertas" indicator="25" bg="bg-dark" color="text-white" />
             </div>
             <div class="col-4">
-                <Indicator />
+                <Indicator title="Profissionais cadastrados" indicator="300" bg="bg-dark" color="text-white" />
             </div>
             <div class="col-4">
-                <Indicator />
+                <Indicator title="Visitantes online" :indicator="usersOnline" bg="bg-light" color="text-dark" />
             </div>
         </div>
     </div>
@@ -28,6 +28,17 @@
         components: {
             Indicator,
             Search
+        },
+        data: () => ({
+            usersOnline: 0
+        }),
+        methods:{
+            getUsersOnline(){
+                this.usersOnline = Math.floor(Math.random() * 101);
+            }
+        },
+        created(){
+            setInterval(this.getUsersOnline, 1000);
         }
     }
 </script>
