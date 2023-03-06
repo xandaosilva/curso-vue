@@ -13,7 +13,38 @@
 <script>
     export default{
         name: "Vacancy",
-        props: ["title", "description", "salary", "modality", "type", "publication"]
+        props: {
+            title: {
+                type: String,
+                required: true,
+                validator(p){
+                    if(p.length < 10)
+                        return false;
+                    return true;
+                }
+            }, 
+            description: {
+                type: String,
+                required: true,
+                default: "O contratante não adicionou uma descrição para esta vaga."
+            }, 
+            salary: {
+                type: Number,
+                required: true
+            }, 
+            modality: {
+                type: String,
+                required: true
+            }, 
+            type: {
+                type: String,
+                required: true
+            }, 
+            publication: {
+                type: String,
+                required: true
+            }
+        }
     }
 </script>
 
