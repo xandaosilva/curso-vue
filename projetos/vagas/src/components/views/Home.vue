@@ -13,7 +13,8 @@
                     :salary="vacancy.salary" 
                     :modality="vacancy.modality" 
                     :type="vacancy.type"
-                    :publication="vacancy.publication" />
+                    :publication="vacancy.publication"
+                />
             </div>
         </div>
         <div class="row mt-5">
