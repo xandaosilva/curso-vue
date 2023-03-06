@@ -20,9 +20,9 @@
 </template>
 
 <script>
-export default {
-    name: "Top"
-}
+    export default {
+        name: "Top"
+    }
 </script>
 
 <style scoped></style>
