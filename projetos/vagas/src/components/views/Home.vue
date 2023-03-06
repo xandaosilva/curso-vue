@@ -7,14 +7,15 @@
         </div>
         <div class="row mt-5" v-for="(vacancy, index) in vacancies" :key="index">
             <div class="col">
-                <Vacancy 
+                <!-- <Vacancy 
                     :title="vacancy.title" 
                     :description="vacancy.description" 
                     :salary="vacancy.salary" 
                     :modality="vacancy.modality" 
                     :type="vacancy.type"
                     :publication="vacancy.publication"
-                />
+                /> -->
+                <Vacancy v-bind="vacancy" />
             </div>
         </div>
         <div class="row mt-5">
