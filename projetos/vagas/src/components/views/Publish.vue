@@ -45,7 +45,6 @@
             </div>
         </div>
         <div class="row mt-3">
-            {{ title }} | {{ description }} | {{ salary }} | {{ modality }} | {{ type }}
             <div class="col">
                 <button type="submit" class="btn btn-primary" @click="createVacancy()">Cadastrar</button>
             </div>

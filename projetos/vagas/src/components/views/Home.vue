@@ -46,48 +46,7 @@
         },
         data: () => ({
             usersOnline: 0,
-            vacancies: [
-                {
-                    title: 'Analista Programador PHP Pleno',
-                    description: 'Profissional com conhecimentos em PHP, Laravel e MySQL. Necessário 3 anos de experiências. Atuará na manutenção de sistemas legados da empresa.',
-                    salary: 6000,
-                    modality: 'Home Office',
-                    type: 'PJ',
-                    publication: '2021-10-10'
-                },
-                {
-                    title: 'Programador JavaScript Angular',
-                    description: 'Profissional com conhecimentos avançados em JavaScript e Angular.',
-                    salary: 5000,
-                    modality: 'Presencial',
-                    type: 'CLT',
-                    publication: '2021-10-07'
-                },
-                {
-                    title: 'Programador JavaScript Vue',
-                    description: 'Profissional com conhecimentos avançados em JavaScript e Vue.',
-                    salary: 5000,
-                    modality: 'Home Office',
-                    type: 'CLT',
-                    publication: '2021-10-06'
-                },
-                {
-                    title: 'Analista de Banco de Dados Sênior',
-                    description: 'Domínio dos bancos de dados SQL Server, Oracle, Postgre e MySQL',
-                    salary: 9000,
-                    modality: 'Presencial',
-                    type: 'PJ',
-                    publication: '2021-10-06'
-                },
-                {
-                    title: 'Programador Web Júnior',
-                    description: 'Conhecimentos básicos em HTML, CSS, JavaScript, Bootstrap, PHP e MySQL',
-                    salary: 3000,
-                    modality: 'Presencial',
-                    type: 'CLT',
-                    publication: '2021-10-05'
-                }
-            ]
+            vacancies: []
         }),
         methods:{
             getUsersOnline(){
@@ -96,6 +55,9 @@
         },
         created(){
             setInterval(this.getUsersOnline, 1000);
+        },
+        activated(){
+            this.vacancies = JSON.parse(localStorage.getItem("vacancies"));
         }
     }
 </script>
