@@ -76,7 +76,7 @@
                     description: this.description, 
                     salary: this.salary, 
                     modality: this.modality, 
-                    type: this.modality,
+                    type: this.type,
                     publication: currentDate.toISOString()
                 }
 
