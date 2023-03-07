@@ -8,26 +8,27 @@
         <div class="row mt-3">
             <div class="col">
                 <label class="form-label">Título da vaga</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" v-model="title">
                 <div class="form-text">Por exemplo: Programador JavaScript e VueJS.</div>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col">
                 <label class="form-label">Descrição da vaga</label>
-                <textarea class="form-control"></textarea>
+                <textarea class="form-control" v-model="description"></textarea>
                 <div class="form-text">Informe os detalhes da vaga.</div>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col">
                 <label for="" class="form-label">Salário</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" v-model="salary">
                 <div class="form-text">Informe o salário.</div>
             </div>
             <div class="col">
                 <label for="" class="form-label">Modalidade</label>
-                <select class="form-select">
+                <select class="form-select" v-model="modality">
+                    <option value="" disabled>Selecione</option>
                     <option value="1">Home Office</option>
                     <option value="2">Presencial</option>
                 </select>
@@ -35,7 +36,8 @@
             </div>
             <div class="col">
                 <label for="" class="form-label">Tipo</label>
-                <select class="form-select">
+                <select class="form-select" v-model="type">
+                    <option value="" disabled>Selecione</option>
                     <option value="1">CLT</option>
                     <option value="2">PJ</option>
                 </select>
@@ -43,8 +45,9 @@
             </div>
         </div>
         <div class="row mt-3">
+            {{ title }} | {{ description }} | {{ salary }} | {{ modality }} | {{ type }}
             <div class="col">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-primary" @click="createVacancy()">Cadastrar</button>
             </div>
         </div>
     </div>
@@ -52,7 +55,34 @@
 
 <script>
     export default{
-        name: "Publish"
+        name: "Publish",
+        data: () => ({
+            title: "",
+            description: "",
+            salary: "",
+            modality: "",
+            type: "",
+        }),
+        methods: {
+            createVacancy(){
+                let vacancies = JSON.parse(localStorage.getItem("vacancies"));
+                
+                if(!vacancies){
+                    vacancies = [];
+                }
+
+                let vacancy = {
+                    title: this.title, 
+                    description: this.description, 
+                    salary: this.salary, 
+                    modality: this.modality, 
+                    type: this.modality
+                }
+
+                vacancies.push(vacancy);
+                localStorage.setItem("vacancies", JSON.stringify(vacancies));
+            }
+        }
     }
 </script>
 
