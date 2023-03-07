@@ -5,7 +5,7 @@
             <p>{{ description }}</p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Salário: R${{ salary }} | Modalidade: {{ modality }} | Tipo: {{ type }} | Publicação: {{ publication }}</small>
+            <small class="text-muted">Salário: R${{ salary }} | Modalidade: {{ getModality }} | Tipo: {{ getType }} | Publicação: {{ publication }}</small>
         </div>
     </div>
 </template>
@@ -43,6 +43,22 @@
             publication: {
                 type: String,
                 required: true
+            }
+        },
+        computed: {
+            getModality(){
+                switch(this.modality){
+                    case "1": return "Home Office";
+                    case "2": return "Presencial";
+                }
+                return "";
+            },
+            getType(){
+                switch(this.type){
+                    case "1": return "CLT";
+                    case "2": return "PJ";
+                }
+                return "";
             }
         }
     }
