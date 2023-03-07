@@ -64,6 +64,7 @@
         }),
         methods: {
             createVacancy(){
+                let currentDate = new Date(Date.now());
                 let vacancies = JSON.parse(localStorage.getItem("vacancies"));
                 
                 if(!vacancies){
@@ -75,7 +76,8 @@
                     description: this.description, 
                     salary: this.salary, 
                     modality: this.modality, 
-                    type: this.modality
+                    type: this.modality,
+                    publication: currentDate.toISOString()
                 }
 
                 vacancies.push(vacancy);

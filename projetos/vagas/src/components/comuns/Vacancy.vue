@@ -5,7 +5,7 @@
             <p>{{ description }}</p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Salário: R${{ salary }} | Modalidade: {{ getModality }} | Tipo: {{ getType }} | Publicação: {{ publication }}</small>
+            <small class="text-muted">Salário: R${{ salary }} | Modalidade: {{ getModality }} | Tipo: {{ getType }} | Publicação: {{ getPublication }}</small>
         </div>
     </div>
 </template>
@@ -59,6 +59,10 @@
                     case "2": return "PJ";
                 }
                 return "";
+            },
+            getPublication(){
+                let currentDate = new Date(this.publication);
+                return currentDate.toLocaleDateString("pt-BR");
             }
         }
     }
