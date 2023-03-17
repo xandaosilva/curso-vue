@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Component App</h1>
-    <Top />
+    <Top @event="$event()" />
     <Content />
   </div>
 </template>
@@ -15,6 +15,11 @@
     components: {
       Content,
       Top
+    },
+    methods: {
+      load(e){
+        console.log(e);
+      }
     }
   }
 </script>
