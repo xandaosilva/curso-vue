@@ -8,10 +8,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" @click="navigateTo()">Home</a>
+                        <a class="nav-link" href="#" @click="navigateTo('Home')">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" @click="navigateTo()">Publicar Vaga</a>
+                        <a class="nav-link" href="#" @click="navigateTo('Publish')">Publicar Vaga</a>
                     </li>
                 </ul>
             </div>
@@ -23,8 +23,8 @@
     export default {
         name: "Top",
         methods: {
-            navigateTo(){
-                this.$emit("event", () => { console.log("Função de callback") });
+            navigateTo(p){
+                this.$emit("navigate", p);
             }
         }
     }

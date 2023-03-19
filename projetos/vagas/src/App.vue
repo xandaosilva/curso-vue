@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h1>Component App</h1>
-    <Top @event="$event()" />
-    <Content />
+    <Top @navigate="component = $event" />
+    <Content :content="component" />
   </div>
 </template>
 
@@ -12,14 +11,12 @@
 
   export default {
     name: 'App',
+    data: () => ({
+      component: "Home"
+    }),
     components: {
       Content,
       Top
-    },
-    methods: {
-      load(e){
-        console.log(e);
-      }
     }
   }
 </script>

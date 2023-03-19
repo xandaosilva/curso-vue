@@ -1,8 +1,5 @@
 <template>
     <div>
-        <h1>Component Content</h1>
-        <button @click="content = 'home'">Home</button>
-        <button @click="content = 'publish'">Publicar Vaga</button>
         <KeepAlive>
             <component :is="content" />
         </KeepAlive>
@@ -15,54 +12,15 @@
 
     export default {
         name: "Content",
+        props: {
+            content: {
+                type: String,
+                required: true
+            }
+        },
         components: {
             Home,
             Publish
-        },
-        data: () => ({
-            content: "home"
-        }),
-        methods: {
-
-        },
-        beforeCreate(){
-            console.log("Before create");
-        },
-        created() {
-            console.log("Created");
-        },
-        beforeMount() {
-            console.log("Before mount");
-        },
-        mounted() {
-            console.log("Mounted");
-        },
-        beforeUpdate() {
-            console.log("Before update");
-        },
-        updated() {
-            console.log("Updated");
-        },
-        beforeUnmount() {
-            console.log("Befora unmount");
-        },
-        unmounted() {
-            console.log("Unmounted");
-        },
-        errorCaptured() {
-            console.log("Error captured");
-        },
-        renderTracked() {
-            console.log("Render tracked");
-        },
-        renderTriggered() {
-            console.log("Render triggered");
-        },
-        activated() {
-            console.log("Activated");
-        },
-        deactivated() {
-            console.log("Deactivated");
         }
     }
 </script>
