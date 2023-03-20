@@ -1,6 +1,18 @@
 <template>
     <div class="card">
-        <div class="card-header bg-dark text-white">{{ title }}</div>
+        <div class="card-header bg-dark text-white">
+            <div class="row">
+                <div class="col d-flex justify-content-between">
+                    <div>{{ title }}</div>
+                    <div>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" v-model="liked">
+                            <label class="form-check-label">Favoritar</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="card-body">
             <p>{{ description }}</p>
         </div>
@@ -13,6 +25,19 @@
 <script>
     export default{
         name: "Vacancy",
+        data: () => ({
+            liked: false
+        }),
+        watch: {
+            liked(value){
+                if(value){
+                    this.emitter.emit("likeVacancy", this.title);
+                }
+                else{
+                    this.emitter.emit("dislikeVacancy", this.title);
+                }
+            }
+        },
         props: {
             title: {
                 type: String,
@@ -64,6 +89,9 @@
                 let currentDate = new Date(this.publication);
                 return currentDate.toLocaleDateString("pt-BR");
             }
+        },
+        methods: {
+            
         }
     }
 </script>

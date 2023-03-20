@@ -1,5 +1,6 @@
 <template>
   <div>
+    <VacanciesFavorites />
     <Top @navigate="component = $event" />
     <Content :content="component" />
   </div>
@@ -8,6 +9,7 @@
 <script>
   import Content from '@/components/layouts/Content.vue';
   import Top from '@/components/layouts/Top.vue';
+  import VacanciesFavorites from '@/components/comuns/VacanciesFavorites.vue';
 
   export default {
     name: 'App',
@@ -15,9 +17,10 @@
       component: "Home"
     }),
     components: {
-      Content,
-      Top
-    }
+    Content,
+    Top,
+    VacanciesFavorites
+}
   }
 </script>
 
