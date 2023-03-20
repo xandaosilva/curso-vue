@@ -82,6 +82,15 @@
 
                 vacancies.push(vacancy);
                 localStorage.setItem("vacancies", JSON.stringify(vacancies));
+                this.emitter.emit("alert");
+                this.clearForm();
+            },
+            clearForm(){
+                this.title = "";
+                this.description = "";
+                this.salary = "";
+                this.modality = "";
+                this.type = "";
             }
         }
     }
