@@ -2,7 +2,14 @@
   <div>
     <VacanciesFavorites />
     <Top @navigate="component = $event" />
-    <Alert v-if="showAlert" />
+    <Alert v-if="showAlert" :type="alert.type">
+      <template v-slot:title>
+        <h5>{{ alert.title }}</h5>
+      </template>
+      <template v-slot:description>
+        <p>{{ alert.description }}</p>
+      </template>
+    </Alert>
     <Content :content="component" />
   </div>
 </template>
@@ -17,7 +24,8 @@
     name: 'App',
     data: () => ({
       component: "Home",
-      showAlert: false
+      showAlert: false,
+      alert: { type: "", title: "", description: "" }
     }),
     components: {
       Alert,
@@ -26,10 +34,10 @@
       VacanciesFavorites
     },
     mounted(){
-      this.emitter.on("alert", () => {
+      this.emitter.on("alert", (a) => {
+        this.alert = a;
         this.showAlert = true;
         setTimeout(() => this.showAlert = false, 4000);
-        console.log("ALert");
       });
     }
   }

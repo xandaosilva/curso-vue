@@ -80,10 +80,23 @@
                     publication: currentDate.toISOString()
                 }
 
-                vacancies.push(vacancy);
-                localStorage.setItem("vacancies", JSON.stringify(vacancies));
-                this.emitter.emit("alert");
-                this.clearForm();
+                if(this.validateForm()){
+                    vacancies.push(vacancy);
+                    localStorage.setItem("vacancies", JSON.stringify(vacancies));
+                    this.emitter.emit("alert", {
+                        type: "success",
+                        title: `A vaga ${this.title} foi cadastrada com sucesso.`,
+                        description: `Parabéns, a vaga foi cadastrada e poderá ser consultada por milhares de profissionais em nossa plataforma.`
+                    });
+                    this.clearForm();
+                }
+                else{
+                    this.emitter.emit("alert", {
+                        type: "error",
+                        title: `Não foi possível realizar o cadastro.`,
+                        description: `Preencha o formulário corretamente para realizar o cadastro.`
+                    });
+                }
             },
             clearForm(){
                 this.title = "";
@@ -91,6 +104,13 @@
                 this.salary = "";
                 this.modality = "";
                 this.type = "";
+            },
+            validateForm(){
+                let valid = true;                
+                if(this.title === "" || this.description === "" || this.salary === "" || this.modality === "" || this.type === ""){
+                    valid = false;
+                }
+                return valid;
             }
         }
     }
