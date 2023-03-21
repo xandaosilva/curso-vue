@@ -58,6 +58,12 @@
         },
         activated(){
             this.vacancies = JSON.parse(localStorage.getItem("vacancies"));
+        },
+        mounted(){
+            this.emitter.on("filterVacancies", vacancy => {
+                const vacancies = JSON.parse(localStorage.getItem("vacancies"));
+                this.vacancies = vacancies.filter(reg => reg.title.toLowerCase().includes(vacancy.title.toLowerCase()));
+            });
         }
     }
 </script>
