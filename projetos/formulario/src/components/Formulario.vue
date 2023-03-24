@@ -8,25 +8,25 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Nome:</label>
                         <div class="col">
-                            <input type="text" class="form-control" v-model="name">
+                            <input type="text" class="form-control" v-model.lazy.trim="form.name">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">E-mail:</label>
                         <div class="col">
-                            <input type="email" class="form-control" v-model="email">
+                            <input type="email" class="form-control" v-model="form.email">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Senha:</label>
                         <div class="col">
-                            <input type="password" class="form-control" v-model="password">
+                            <input type="password" class="form-control" v-model.trim="form.password">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Idade:</label>
                         <div class="col">
-                            <input type="number" class="form-control">
+                            <input type="number" class="form-control" v-model.number="form.age">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -164,16 +164,16 @@
                 <span class="fs-4">SAÍDA DE DADOS</span>
                 <hr>
                 <div class="mb-3 row">
-                    <span>Nome: {{ name }}</span>
+                    <span>Nome: {{ form.name }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>E-mail: {{ email }}</span>
+                    <span>E-mail: {{ form.email }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Senha: {{ password }}</span>
+                    <span>Senha: {{ form.password }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Idade:</span>
+                    <span>Idade: {{ form.age }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Gênero:</span>
@@ -223,9 +223,12 @@
     export default {
         name: 'Formulario',
         data: () =>({
-            name: "",
-            email: "",
-            password: ""
+            form: {
+                name: "",
+                email: "",
+                password: "",
+                age: ""
+            }
         })
     }
 </script>
