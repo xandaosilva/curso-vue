@@ -8,19 +8,19 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Nome:</label>
                         <div class="col">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" v-model="name">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">E-mail:</label>
                         <div class="col">
-                            <input type="email" class="form-control">
+                            <input type="email" class="form-control" v-model="email">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Senha:</label>
                         <div class="col">
-                            <input type="password" class="form-control">
+                            <input type="password" class="form-control" v-model="password">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -164,13 +164,13 @@
                 <span class="fs-4">SAÍDA DE DADOS</span>
                 <hr>
                 <div class="mb-3 row">
-                    <span>Nome:</span>
+                    <span>Nome: {{ name }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>E-mail:</span>
+                    <span>E-mail: {{ email }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Senha:</span>
+                    <span>Senha: {{ password }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Idade:</span>
@@ -221,7 +221,12 @@
 
 <script>
     export default {
-        name: 'Formulario'
+        name: 'Formulario',
+        data: () =>({
+            name: "",
+            email: "",
+            password: ""
+        })
     }
 </script>
 
