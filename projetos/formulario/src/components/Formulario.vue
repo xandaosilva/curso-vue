@@ -33,16 +33,12 @@
                         <label class="col-3 col-form-label">Gênero:</label>
                         <div class="col">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio">
-                                <label class="form-check-label">
-                                    Feminino
-                                </label>
+                                <input class="form-check-input" type="radio" v-model="form.gender" value="FEMALE">
+                                <label class="form-check-label">Feminino</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio">
-                                <label class="form-check-label">
-                                    Masculino
-                                </label>
+                                <input class="form-check-input" type="radio" v-model="form.gender" value="MALE">
+                                <label class="form-check-label">Masculino</label>
                             </div>
                         </div>
                     </div>
@@ -50,7 +46,7 @@
                         <label class="col-3 col-form-label">Licença:</label>
                         <div class="col">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" type="checkbox" v-model="form.license" true-value="YES" false-value="NO">
                                 <label class="form-check-label">Li e aceito os termos</label>
                             </div>
                         </div>
@@ -59,28 +55,20 @@
                         <label class="col-3 col-form-label">Interesses:</label>
                         <div class="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label">
-                                    JavaScriot
-                                </label>
+                                <input class="form-check-input" type="checkbox" v-model="form.interests" value="JavaScript">
+                                <label class="form-check-label">JavaScript</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label">
-                                    VueJS
-                                </label>
+                                <input class="form-check-input" type="checkbox" v-model="form.interests" value="VueJS">
+                                <label class="form-check-label">VueJS</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label">
-                                    Angular
-                                </label>
+                                <input class="form-check-input" type="checkbox" v-model="form.interests" value="Angular">
+                                <label class="form-check-label">Angular</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label">
-                                    NodeJS
-                                </label>
+                                <input class="form-check-input" type="checkbox" v-model="form.interests" value="NodeJS">
+                                <label class="form-check-label">NodeJS</label>
                             </div>
                         </div>
                     </div>
@@ -176,13 +164,16 @@
                     <span>Idade: {{ form.age }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Gênero:</span>
+                    <span>Gênero: {{ form.gender }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Licença:</span>
+                    <span>Licença: {{ form.license }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Interesses:</span>
+                    <ul>
+                        <li v-for="(interest, index) in form.interests" :key="index">{{ interest }}</li>
+                    </ul>
                 </div>
                 <div class="mb-3 row">
                     <span>Telefone:</span>
@@ -227,10 +218,17 @@
                 name: "",
                 email: "",
                 password: "",
-                age: ""
+                age: "",
+                license: "NO",
+                interests: [],
+                gender: ""
             }
         })
     }
 </script>
 
-<style scoped></style>
+<style scoped>
+    li{
+        list-style: none;
+    }
+</style>
