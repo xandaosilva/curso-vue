@@ -250,7 +250,7 @@
                     <span>Placa de veículo Mercosul: {{ form.vehiclePlateMercosul }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Data: {{ form.date }} | {{ moment(form.date).format("DD/MM/YYYY") }}</span>
+                    <span>Data: {{ form.date }} | {{ $moment(form.date).format("DD/MM/YYYY") }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Data/hora local: {{ form.dateLocal }}</span>
@@ -282,12 +282,9 @@
 </template>
 
 <script>
-    import moment from "moment";
-
     export default {
         name: 'Formulario',
         data: () =>({
-            moment:{},
             form: {
                 name: "",
                 email: "",
@@ -310,10 +307,7 @@
                 week: "",
                 hour: ""
             }
-        }),
-        created(){
-            this.moment = moment;
-        }
+        })
     }
 </script>
 
