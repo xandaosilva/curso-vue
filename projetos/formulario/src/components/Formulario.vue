@@ -132,31 +132,31 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Data:</label>
                         <div class="col">
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" v-model="form.date">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Data/hora local:</label>
                         <div class="col">
-                            <input type="datetime-local" class="form-control">
+                            <input type="datetime-local" class="form-control" v-model="form.dateLocal">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Mês:</label>
                         <div class="col">
-                            <input type="month" class="form-control">
+                            <input type="month" class="form-control" v-model="form.month">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Semana:</label>
                         <div class="col">
-                            <input type="week" class="form-control">
+                            <input type="week" class="form-control" v-model="form.week">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Hora:</label>
                         <div class="col">
-                            <input type="time" class="form-control">
+                            <input type="time" class="form-control" v-model="form.hour">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -250,19 +250,19 @@
                     <span>Placa de veículo Mercosul: {{ form.vehiclePlateMercosul }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Data:</span>
+                    <span>Data: {{ form.date }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Data/hora local:</span>
+                    <span>Data/hora local: {{ form.dateLocal }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Mês:</span>
+                    <span>Mês: {{ form.month }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Semana:</span>
+                    <span>Semana: {{ form. week}}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Hora:</span>
+                    <span>Hora: {{ form.hour }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Cor:</span>
@@ -300,7 +300,12 @@
                 creditCard: "",
                 vehiclePlate: "",
                 vehiclePlateMercosul: "",
-                rg: ""
+                rg: "",
+                date: "",
+                dateLocal: "",
+                month: "",
+                week: "",
+                hour: ""
             }
         })
     }
