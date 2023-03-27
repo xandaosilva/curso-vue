@@ -75,8 +75,58 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Telefone:</label>
                         <div class="col">
-                            <input type="tel" class="form-control" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}">
+                            <!-- <input type="tel" class="form-control" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}"> -->
+                            <input type="text" class="form-control" v-model="form.telephone" v-maska="'(##) #####-####'">
                             <small class="text-muted">Formato: 11 97777-5555</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Cep:</label>
+                        <div class="col">
+                            <input type="text" class="form-control" v-model="form.cep" v-maska="'#####-###'">
+                            <small class="text-muted">Formato: 00000-000</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">RG:</label>
+                        <div class="col">
+                            <input type="text" class="form-control" v-model="form.rg" v-maska="'#*-X'">
+                            <small class="text-muted">Formato: Sem padrão</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Cpf:</label>
+                        <div class="col">
+                            <input type="text" class="form-control" v-model="form.cpf" v-maska="'###.###.###-##'">
+                            <small class="text-muted">Formato: 000.000.000-00</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Cnpj:</label>
+                        <div class="col">
+                            <input type="text" class="form-control" v-model="form.cnpj" v-maska="'##.###.###/####-##'">
+                            <small class="text-muted">Formato: 00.000.000/0000-00</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Cartão de crédito:</label>
+                        <div class="col">
+                            <input type="text" class="form-control" v-model="form.creditCard" v-maska="'#### #### #### ####'">
+                            <small class="text-muted">Formato: 0000 0000 0000 0000</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Placa de veículo:</label>
+                        <div class="col">
+                            <input type="text" class="form-control" v-model="form.vehiclePlate" v-maska="'AAA-####'">
+                            <small class="text-muted">Formato: AAA-0000</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Placa de veículo Mercosul:</label>
+                        <div class="col">
+                            <input type="text" class="form-control" v-model="form.vehiclePlateMercosul" v-maska="'AAA#A##'">
+                            <small class="text-muted">Formato: AAA0A00</small>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -176,7 +226,28 @@
                     </ul>
                 </div>
                 <div class="mb-3 row">
-                    <span>Telefone:</span>
+                    <span>Telefone: {{ form.telephone }}</span>
+                </div>
+                <div class="mb-3 row">
+                    <span>Cep: {{ form.cep }}</span>
+                </div>
+                <div class="mb-3 row">
+                    <span>RG: {{ form.rg }}</span>
+                </div>
+                <div class="mb-3 row">
+                    <span>Cpf: {{ form.cpf }}</span>
+                </div>
+                <div class="mb-3 row">
+                    <span>Cnpj: {{ form.cnpj }}</span>
+                </div>
+                <div class="mb-3 row">
+                    <span>Cartão de crédito: {{ form.creditCard }}</span>
+                </div>
+                <div class="mb-3 row">
+                    <span>Placa de veículo: {{ form.vehiclePlate }}</span>
+                </div>
+                <div class="mb-3 row">
+                    <span>Placa de veículo Mercosul: {{ form.vehiclePlateMercosul }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Data:</span>
@@ -221,7 +292,15 @@
                 age: "",
                 license: "NO",
                 interests: [],
-                gender: ""
+                gender: "",
+                telephone: "",
+                cep: "",
+                cpf: "",
+                cnpj: "",
+                creditCard: "",
+                vehiclePlate: "",
+                vehiclePlateMercosul: "",
+                rg: ""
             }
         })
     }
