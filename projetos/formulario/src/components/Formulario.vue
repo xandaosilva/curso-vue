@@ -162,25 +162,25 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Cor:</label>
                         <div class="col">
-                            <input type="color" class="form-color">
+                            <input type="color" class="form-color" v-model="form.color">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Valor limite:</label>
                         <div class="col">
-                            <input type="range" class="form-range" min="0" max="100" step="1">
+                            <input type="range" class="form-range" min="0" max="100" step="1" v-model="form.range">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Escondido:</label>
                         <div class="col">
-                            <input type="hidden" class="form-control">
+                            <input type="hidden" class="form-control" v-model="form.hidden">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Upload:</label>
                         <div class="col">
-                            <input type="file" class="form-control">
+                            <input type="file" class="form-control" multiple @change="selectFiles($event)">
                         </div>
                     </div>
                     <hr>
@@ -193,7 +193,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-6 text-white bg-secondary">
+            <div class="col-6 text-white bg-secondary" :style="'background-color:'+form.color+'!important'">
                 <span class="fs-4">ESTADO DO OBJETO</span>
                 <hr>
                 <div class="mb-5 row">
@@ -276,16 +276,19 @@
                     <span>Hora: {{ form.hour }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Cor:</span>
+                    <span>Cor: {{ form.color }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Valor limite:</span>
+                    <span>Valor limite: {{ form.range }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Escondido:</span>
+                    <span>Escondido: {{ form.hidden }}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Upload:</span>
+                    <ul>
+                        <li v-for="(file, index) in form.files" :key="index">{{ file.name }}</li>
+                    </ul>
                 </div>  
             </div>
         </div>
@@ -316,9 +319,18 @@
                 dateLocal: "",
                 month: "",
                 week: "",
-                hour: ""
+                hour: "",
+                color: "#6c757d",
+                range: 5,
+                hidden: "Input invisível",
+                files: {}
             }
-        })
+        }),
+        methods: {
+            selectFiles(event){
+                this.form.files = event.target.files;
+            }
+        }
     }
 </script>
 
