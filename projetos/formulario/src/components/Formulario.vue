@@ -254,6 +254,17 @@
                 </div>
                 <div class="mb-3 row">
                     <span>Data/hora local: {{ form.dateLocal }}</span>
+                    <ul>
+                        <li>{{ $moment(form.dateLocal).format("dddd") }}</li>
+                        <li>{{ $moment(form.dateLocal).add(3, "days").format("LL") }}</li>
+                        <li>{{ $moment(form.dateLocal).add(1, "month").format("LL") }}</li>
+                        <li>{{ $moment(form.dateLocal).add(2, "years").format("LL") }}</li>
+                        <li>{{ $moment(form.dateLocal).subtract(3, "days").format("LL") }}</li>
+                        <li>{{ $moment(form.dateLocal).subtract(1, "month").format("LL") }}</li>
+                        <li>{{ $moment(form.dateLocal).subtract(2, "years").format("LL") }}</li>
+                        <li>{{ $moment(form.dateLocal).format("LLLL") }}</li>
+                        <li>{{ $moment(form.dateLocal).add(15, "days").format("LLLL") }}</li>
+                    </ul>
                 </div>
                 <div class="mb-3 row">
                     <span>Mês: {{ form.month }}</span>
