@@ -4,7 +4,7 @@
             <div class="col-6 bg-light">
                 <span class="fs-4">ENTRADA DE DADOS</span>
                 <hr>
-                <form>
+                <form @submit.prevent="handleSubmit($event)" @reset.prevent="resetForm()">
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Nome:</label>
                         <div class="col">
@@ -201,8 +201,9 @@
                     <hr>
                     <div class="mb-3 row">
                         <div class="col d-flex justify-content-between">
+                            <button class="btn btn-secondary" type="button" @click="resetForm()">Limpar (btn)</button>
                             <button class="btn btn-secondary" type="reset">Limpar</button>
-                            <button class="btn btn-success" type="button">Enviar (btn)</button>
+                            <button class="btn btn-success" type="button" @click="newHandleSubmit($event)">Enviar (btn)</button>
                             <button class="btn btn-success" type="submit">Enviar (submit)</button>
                         </div>                        
                     </div>
@@ -307,7 +308,7 @@
                 </div>  
                 <div class="mb-3 row">
                     <span>Descrição:</span>
-                    <div style="white-space: pre">{{ form.description }}</div>
+                    <!-- <div style="white-space: pre">{{ form.description }}</div> -->
                     <pre>{{ form.description }}</pre>
                 </div>
                 <div class="mb-3 row">
@@ -328,7 +329,8 @@
                 { id: 3, course: "Desenvolvimento web Avançado com Laravel" },
                 { id: 4, course: "Curso Completo de Desenvolvedor NodeJs e MongoDB" }
             ],
-            form: {
+            form: {},
+            formInitialState: {
                 name: "",
                 email: "",
                 password: "",
@@ -357,9 +359,25 @@
                 course: ""
             }
         }),
+        created(){
+            this.resetForm();
+        },
         methods: {
             selectFiles(event){
                 this.form.files = event.target.files;
+            },
+            handleSubmit(event){
+                console.log(event);
+                const formSent = Object.assign({}, this.form);
+                console.log(formSent);
+            },
+            newHandleSubmit(event){
+                console.log(event);
+                const formSent = Object.assign({}, this.form);
+                console.log(formSent);
+            },
+            resetForm(){
+                this.form = Object.assign({}, this.formInitialState);
             }
         }
     }
