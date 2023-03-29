@@ -198,6 +198,13 @@
                             </select>
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label class="col-3 col-form-label">Avaliação:</label>
+                        <div class="col">
+                            <!-- <InputStars :numberStars="5" @toAssess="form.assessment = $event" /> -->
+                            <InputStars :numberStars="5" v-model:toAssess="form.assessment" />
+                        </div>
+                    </div>
                     <hr>
                     <div class="mb-3 row">
                         <div class="col d-flex justify-content-between">
@@ -314,14 +321,22 @@
                 <div class="mb-3 row">
                     <span>Curso: {{ form.course }}</span>
                 </div>
+                <div class="mb-3 row">
+                    <span>Avaliação: {{ form.assessment }} estrelas</span>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import InputStars from '@/components/InputStars.vue';
+
     export default {
         name: 'Formulario',
+        components:{
+            InputStars
+        },
         data: () =>({
             courses:[
                 { id: 1, course: "Bancos de dados relacionais" },
@@ -356,7 +371,8 @@
                 hidden: "Input invisível",
                 files: {},
                 description: "",
-                course: ""
+                course: "",
+                assessment: 0
             }
         }),
         created(){
