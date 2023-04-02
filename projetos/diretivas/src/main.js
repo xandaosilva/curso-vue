@@ -55,4 +55,34 @@ Vue.directive("position", {
     }
 });
 
+Vue.directive("information", {
+    created(el, binding){
+        console.log(el, binding.arg, binding.modifiers, binding.value);
+
+        let func = function(){
+            let informationSpan = document.createElement("span");
+            
+            informationSpan.style.position = "absolute";
+            informationSpan.style.background = "#ddd";
+            informationSpan.style.padding = "2px";
+            informationSpan.innerText = binding.value;
+
+            el.appendChild(informationSpan);
+
+            informationSpan.addEventListener("click", (event) => {
+                event.stopPropagation();
+                informationSpan.remove();
+            });
+        }
+
+        if(binding.modifiers["oneClickMouse"]){
+            el.addEventListener("click", func);
+        }
+
+        if(binding.modifiers["doubleClickMouse"]){
+            el.addEventListener("dblclick", func);
+        }
+    }
+});
+
 Vue.mount('#app');
