@@ -11,7 +11,7 @@
     <br>
     <span>Cófigo B: </span>
     <input type="text">
-    <span v-information:simple.doubleClickMouse="'Você encontrará o código B na parte traseira do equipamento, próximo a área de proteção.'"> i</span>
+    <span v-information:detached.doubleClickMouse="'Você encontrará o código B na parte traseira do equipamento, próximo a área de proteção.'"> i</span>
   </div>
 </template>
 

@@ -59,20 +59,53 @@ Vue.directive("information", {
     created(el, binding){
         console.log(el, binding.arg, binding.modifiers, binding.value);
 
-        let func = function(){
-            let informationSpan = document.createElement("span");
-            
-            informationSpan.style.position = "absolute";
-            informationSpan.style.background = "#ddd";
-            informationSpan.style.padding = "2px";
-            informationSpan.innerText = binding.value;
+        let func = null;
 
-            el.appendChild(informationSpan);
+        if(binding.arg === undefined || binding.arg === "simple"){
+            func = function(){
+                let informationSpan = document.createElement("span");
+                
+                informationSpan.style.position = "absolute";
+                informationSpan.style.background = "#ddd";
+                informationSpan.style.padding = "2px";
+                informationSpan.innerText = binding.value;
+    
+                el.appendChild(informationSpan);
+    
+                informationSpan.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    informationSpan.remove();
+                });
+            }
+        }
 
-            informationSpan.addEventListener("click", (event) => {
-                event.stopPropagation();
-                informationSpan.remove();
-            });
+        if(binding.arg === "detached"){
+            func = function(){
+                let informationDivContainer = document.createElement("div");
+                let informationDiv = document.createElement("div");
+                informationDiv.innerText = binding.value;
+
+                informationDivContainer.style.width = "100%";
+                informationDivContainer.style.height = "100%";
+                informationDivContainer.style.display = "flex";
+                informationDivContainer.style.flexDirection = "row";
+                informationDivContainer.style.alignItems = "center";
+                informationDivContainer.style.justifyContent = "center";
+                informationDivContainer.style.background = "#ccc";
+                informationDivContainer.style.position = "absolute";
+                informationDivContainer.style.top = "0";
+                informationDivContainer.style.zIndex = "10";
+                informationDiv.style.padding = "30px";
+                informationDiv.style.background = "#fba";
+                
+                informationDivContainer.appendChild(informationDiv);
+                el.appendChild(informationDivContainer);
+
+                informationDivContainer.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    informationDivContainer.remove();
+                });
+            }
         }
 
         if(binding.modifiers["oneClickMouse"]){
