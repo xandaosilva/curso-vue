@@ -1,5 +1,6 @@
 export default{
     data: () => ({
+        title: "Lista padrão",
         items: [],
         item: ""
     }),

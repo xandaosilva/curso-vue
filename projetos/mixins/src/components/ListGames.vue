@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Lista de Jogos</h3>
+        <h3>{{ title }}</h3>
         <input type="text" placeholder="Nome do jogo" v-model="item">
         <button type="button" @click="addItem">Adicionar</button>
         <button type="button" @click="removeItem">Remover</button>
@@ -16,6 +16,9 @@
 
     export default{
         name: "ListGames",
+        data: () => ({
+            title: "Lista de Jogos"
+        }),
         mixins: [ListMixin, RemoveItemListMixin]
     }
 </script>

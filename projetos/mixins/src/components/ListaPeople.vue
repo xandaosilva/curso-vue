@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Lista de Pessoas</h3>
+        <h3>{{ title }}</h3>
         <input type="text" placeholder="Nome da pessoa" v-model="item">
         <button type="button" @click="addItem">Adicionar</button>
         <button type="button" @click="removeItem">Remover</button>
@@ -16,6 +16,9 @@
 
     export default{
         name: "ListPeople",
+        data: () => ({ 
+            title: "Lista de Pessoas" 
+        }),
         mixins: [ListMixin, RemoveItemListMixin]
     }
 </script>
