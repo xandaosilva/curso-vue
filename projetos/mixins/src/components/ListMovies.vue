@@ -19,7 +19,10 @@
         data: () => ({
             title: "Lista de Filmes"
         }),
-        mixins: [ListMixin, RemoveItemListMixin]
+        mixins: [ListMixin, RemoveItemListMixin],
+        created(){
+            console.log("Lista de Filmes criada.");
+        }
     }
 </script>
 
