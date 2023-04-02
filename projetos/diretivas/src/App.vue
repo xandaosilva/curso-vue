@@ -12,6 +12,8 @@
     <span>Cófigo B: </span>
     <input type="text">
     <span v-information:detached.doubleClickMouse.exitAutomatically="'Você encontrará o código B na parte traseira do equipamento, próximo a área de proteção.'"> i</span>
+    <hr>
+    <h1 v-toColor="'blue'">Diretiva customizada registrada no componente</h1>
   </div>
 </template>
 
@@ -21,7 +23,14 @@ export default {
   name: 'App',
   data: () => ({
     configText: { color: 'blue', size: '2rem', totalLetters: 5 }
-  })
+  }),
+  directives:{
+    toColor: {
+      created: function(el, binding){
+        el.style.background = binding.value;
+      }
+    }
+  }
 }
 </script>
 
