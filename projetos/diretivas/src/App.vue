@@ -18,20 +18,17 @@
 </template>
 
 <script>
+  import toColor from '@/directives/toColor.js'; 
 
-export default {
-  name: 'App',
-  data: () => ({
-    configText: { color: 'blue', size: '2rem', totalLetters: 5 }
-  }),
-  directives:{
-    toColor: {
-      created: function(el, binding){
-        el.style.background = binding.value;
-      }
+  export default {
+    name: 'App',
+    data: () => ({
+      configText: { color: 'blue', size: '2rem', totalLetters: 5 }
+    }),
+    directives:{
+      toColor: toColor
     }
   }
-}
 </script>
 
 <style scoped></style>
