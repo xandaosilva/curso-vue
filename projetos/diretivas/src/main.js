@@ -76,6 +76,12 @@ Vue.directive("information", {
                     event.stopPropagation();
                     informationSpan.remove();
                 });
+
+                if(binding.modifiers["exitAutomatically"]){
+                    setTimeout(() => {
+                        informationSpan.remove();
+                    }, 3000);
+                }
             }
         }
 
@@ -105,6 +111,12 @@ Vue.directive("information", {
                     event.stopPropagation();
                     informationDivContainer.remove();
                 });
+
+                if(binding.modifiers["exitAutomatically"]){
+                    setTimeout(() => {
+                        informationDivContainer.remove();
+                    }, 3000);
+                }
             }
         }
 
