@@ -26,18 +26,13 @@
 </template>
 
 <script>
+    import ApiMixin from '@/mixins/ApiMixin.js';
+
     export default {
         name: "Lead",
-        data: () => ({
-            dataLead: null
-        }),
-        methods: {
-            getDataApi() {
-                fetch(`http://localhost:3000/leads/${this.$route.params.id}`).then(response => response.json()).then(response => this.dataLead = response);
-            }
-        },
+        mixins: [ApiMixin],
         created(){
-            this.getDataApi();
+            this.getDataApi(`http://localhost:3000/leads/${this.$route.params.id}`);
         }
     }
 </script>

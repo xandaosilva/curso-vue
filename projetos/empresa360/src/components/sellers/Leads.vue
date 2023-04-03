@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="lead in dataLeads" :key="lead.id">
+                <tr v-for="lead in dataLead" :key="lead.id">
                     <td>{{ lead.id }}</td>
                     <td>{{ lead.name }}</td>
                     <td>{{ lead.phone }}</td>
@@ -27,20 +27,14 @@
 </template>
 
 <script>
+    import ApiMixin from '@/mixins/ApiMixin';
     import { RouterLink } from 'vue-router';
 
     export default {
     name: "Leads",
-    data: () => ({
-        dataLeads: null
-    }),
-    methods: {
-        getDataApi() {
-            fetch("http://localhost:3000/leads").then(response => response.json()).then(response => this.dataLeads = response);
-        }
-    },
+    mixins: [ApiMixin],
     created() {
-        this.getDataApi();
+        this.getDataApi("http://localhost:3000/leads");
     },
     components: { RouterLink }
 }
