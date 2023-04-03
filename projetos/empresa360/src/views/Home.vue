@@ -14,7 +14,11 @@
         </nav>
         <div class="d-flex">
             <div class="list-group left-menu">
-                <a class="list-group-item list-group-item-action" href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                <RouterLink class="list-group-item list-group-item-action" to="/home"><i class="bi bi-speedometer2"></i> Dashboard</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers"><i class="bi bi-cart"></i> Vendas</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers/leads"><i class="bi bi-caret-right"></i> Leads</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers/contracts"><i class="bi bi-caret-right"></i> Contratos</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/services"><i class="bi bi-card-checklist"></i> Serviços</RouterLink>
             </div>
             <div class="w-100">
                 <nav aria-label="breadcrumb" class="pt-1 ps-3">
@@ -23,8 +27,7 @@
                     </ol>
                 </nav>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Visões relacionadas ao menu</h1>
-                    <p>Aqui podemos apresentar as views de acordo com as opções do menu.</p>
+                    <RouterView />
                 </div>
             </div>
         </div>
@@ -32,11 +35,11 @@
 </template>
 
 <script>
-    import { RouterLink } from 'vue-router';
+    import { RouterLink, RouterView } from 'vue-router';
 
     export default {
         name: "Home",
-        components: { RouterLink }
+        components: { RouterLink, RouterView }
     }
 </script>
 
