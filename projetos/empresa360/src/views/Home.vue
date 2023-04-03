@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-light bg-light top-menu">
             <div class="container">
-                <a class="navbar-brand" href="#">Empresa 360</a>
+                <RouterLink class="navbar-brand" to="/home">Empresa 360</RouterLink>
                 <div class="navbar-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -14,11 +14,11 @@
         </nav>
         <div class="d-flex">
             <div class="list-group left-menu">
-                <RouterLink class="list-group-item list-group-item-action" to="/home"><i class="bi bi-speedometer2"></i> Dashboard</RouterLink>
-                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers"><i class="bi bi-cart"></i> Vendas</RouterLink>
-                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers/leads"><i class="bi bi-caret-right"></i> Leads</RouterLink>
-                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers/contracts"><i class="bi bi-caret-right"></i> Contratos</RouterLink>
-                <RouterLink class="list-group-item list-group-item-action" to="/home/services"><i class="bi bi-card-checklist"></i> Serviços</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/dashboard" exact-active-class="active"><i class="bi bi-speedometer2"></i> Dashboard</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers" exact-active-class="active"><i class="bi bi-cart"></i> Vendas</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers/leads" exact-active-class="active"><i class="bi bi-caret-right"></i> Leads</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers/contracts" exact-active-class="active"><i class="bi bi-caret-right"></i> Contratos</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" to="/home/services" exact-active-class="active"><i class="bi bi-card-checklist"></i> Serviços</RouterLink>
             </div>
             <div class="w-100">
                 <nav aria-label="breadcrumb" class="pt-1 ps-3">
@@ -64,9 +64,9 @@
         border-color: #65a1fa;
     } */
 
-    .router-link-exact-active{
+    /* .router-link-exact-active{
         color: #fff;
         background-color: #0d6efd;
         border-color: #0d6efd;
-    }
+    } */
 </style>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // Components
 import Contracts from '@/components/sellers/Contracts.vue';
+import Dashboard from '@/components/dashboard/Dashboard.vue';
 import Home from '@/views/Home.vue';
 import Leads from '@/components/sellers/Leads.vue';
 import Login from '@/views/Login.vue';
@@ -22,7 +23,8 @@ const routes = [
                     { path: "contracts", component: Contracts }
                 ]
             },
-            { path: "services", component: Services }
+            { path: "services", component: Services },
+            { path: "dashboard", component: Dashboard }
         ] 
     },
     { path: "/login", component: Login }
