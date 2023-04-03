@@ -36,11 +36,7 @@
     }),
     methods: {
         getDataApi() {
-            fetch("http://localhost:3000/leads").then(response => {
-                response.json()
-            }).then(response => {
-                this.dataLeads = response
-            });
+            fetch("http://localhost:3000/leads").then(response => response.json()).then(response => this.dataLeads = response);
         }
     },
     created() {
