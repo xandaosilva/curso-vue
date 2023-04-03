@@ -8,6 +8,7 @@ import Lead from '@/components/sellers/Lead.vue';
 import Leads from '@/components/sellers/Leads.vue';
 import Login from '@/views/Login.vue';
 import Sellers from '@/components/sellers/Sellers.vue';
+import SellersDefault from '@/components/sellers/SellersDefault.vue';
 import Services from '@/components/services/Services.vue';
 import Site from '@/views/Site.vue';
 // createWebHashHistory
@@ -22,7 +23,8 @@ const routes = [
                 [
                     { path: "leads", component: Leads },
                     { path: "leads/:id", component: Lead },
-                    { path: "contracts", component: Contracts }
+                    { path: "contracts", component: Contracts },
+                    { path: "", component: SellersDefault }
                 ]
             },
             { path: "services", component: Services },
