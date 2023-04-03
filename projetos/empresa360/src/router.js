@@ -22,7 +22,7 @@ const routes = [
             { path: "sellers", component: Sellers, children:
                 [
                     { path: "leads", component: Leads },
-                    { path: "leads/:id", component: Lead },
+                    { path: "leads/:id", component: Lead, name: "lead" },
                     { path: "contracts", component: Contracts, name: "contracts" },
                     { path: "", component: SellersDefault }
                 ]

@@ -16,7 +16,8 @@
                     <td>{{ lead.name }}</td>
                     <td>{{ lead.phone }}</td>
                     <td>
-                        <RouterLink :to="`/home/sellers/leads/${lead.id}`" class="btn btn-sm btn-primary">
+                        <!-- <RouterLink :to="`/home/sellers/leads/${lead.id}`" class="btn btn-sm btn-primary"> -->
+                        <RouterLink :to="{ name: 'lead', params: { id: lead.id } }" class="btn btn-sm btn-primary">
                             <i class="bi bi-pencil-square" style="cursor: pointer;"></i>
                         </RouterLink>
                     </td>
