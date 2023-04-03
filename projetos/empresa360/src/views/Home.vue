@@ -17,8 +17,8 @@
                 <RouterLink class="list-group-item list-group-item-action" to="/home/dashboard" exact-active-class="active"><i class="bi bi-speedometer2"></i> Dashboard</RouterLink>
                 <RouterLink class="list-group-item list-group-item-action" to="/home/sellers" exact-active-class="active"><i class="bi bi-cart"></i> Vendas</RouterLink>
                 <RouterLink class="list-group-item list-group-item-action" to="/home/sellers/leads" exact-active-class="active"><i class="bi bi-caret-right"></i> Leads</RouterLink>
-                <RouterLink class="list-group-item list-group-item-action" to="/home/sellers/contracts" exact-active-class="active"><i class="bi bi-caret-right"></i> Contratos</RouterLink>
-                <RouterLink class="list-group-item list-group-item-action" to="/home/services" exact-active-class="active"><i class="bi bi-card-checklist"></i> Serviços</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" :to="{ name: 'contracts' }" exact-active-class="active"><i class="bi bi-caret-right"></i> Contratos</RouterLink>
+                <RouterLink class="list-group-item list-group-item-action" :to="{ name: 'services' }" exact-active-class="active"><i class="bi bi-card-checklist"></i> Serviços</RouterLink>
             </div>
             <div class="w-100">
                 <nav aria-label="breadcrumb" class="pt-1 ps-3">

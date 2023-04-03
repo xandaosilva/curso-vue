@@ -23,11 +23,11 @@ const routes = [
                 [
                     { path: "leads", component: Leads },
                     { path: "leads/:id", component: Lead },
-                    { path: "contracts", component: Contracts },
+                    { path: "contracts", component: Contracts, name: "contracts" },
                     { path: "", component: SellersDefault }
                 ]
             },
-            { path: "services", component: Services },
+            { path: "services", component: Services, name: "services" },
             { path: "dashboard", component: Dashboard }
         ] 
     },
