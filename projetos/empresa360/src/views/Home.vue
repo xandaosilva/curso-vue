@@ -1,10 +1,16 @@
 <template>
-    <h3>Home</h3>
+    <div>
+        <h3>Home</h3>
+        <RouterLink to="/login">Navegar para "/login"</RouterLink>
+    </div>
 </template>
 
 <script>
+    import { RouterLink } from 'vue-router';
+
     export default {
-        name: "Home"
+        name: "Home",
+        components: { RouterLink }
     }
 </script>
 
