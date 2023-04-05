@@ -21,7 +21,7 @@ const routes = [
         children: [
             { path: "sellers", component: Sellers, children:
                 [
-                    { path: "leads", component: Leads },
+                    { path: "leads", component: Leads, name: "leads" },
                     { path: "leads/:id", component: Lead, name: "lead" },
                     { path: "contracts", component: Contracts, name: "contracts" },
                     { path: "", component: SellersDefault }
