@@ -22,11 +22,12 @@ const routes = [
     { 
         path: "/home", 
         component: Home,
+        alias: "/app",
         children: [
             { path: "sellers", component: Sellers, children:
                 [
                     { path: "leads", component: Leads, name: "leads" },
-                    { path: "leads/:id", component: Lead, name: "lead" },
+                    { path: "leads/:id", component: Lead, name: "lead", alias: "/l/:id" },
                     { path: "contracts", component: Contracts, name: "contracts" },
                     { path: "", component: SellersDefault }
                 ]
@@ -35,6 +36,7 @@ const routes = [
                 [
                     { 
                         path: ":id",
+                        alias: "/s/:id",
                         components: {
                             default: Service,
                             options: Options,
