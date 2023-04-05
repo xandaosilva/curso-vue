@@ -18,22 +18,46 @@ import Site from '@/views/Site.vue';
 // createWebHashHistory
 
 const routes = [
-    { path: "/", component: Site },
+    { 
+        path: "/",
+        component: Site 
+    },
     { 
         path: "/home", 
         component: Home,
         alias: "/app",
         children: [
-            { path: "sellers", component: Sellers, children:
-                [
-                    { path: "leads", component: Leads, name: "leads" },
-                    { path: "leads/:id", component: Lead, name: "lead", alias: "/l/:id" },
-                    { path: "contracts", component: Contracts, name: "contracts" },
-                    { path: "", component: SellersDefault }
+            { 
+                path: "sellers",
+                component: Sellers,
+                children: [
+                    { 
+                        path: "leads",
+                        component: Leads,
+                        name: "leads" 
+                    },
+                    { 
+                        path: "leads/:id",
+                        component: Lead,
+                        name: "lead",
+                        alias: "/l/:id" 
+                    },
+                    { 
+                        path: "contracts",
+                        component: Contracts,
+                        name: "contracts"
+                    },
+                    { 
+                        path: "",
+                        component: SellersDefault
+                    }
                 ]
             },
-            { path: "services", component: Services, name: "services", children: 
-                [
+            { 
+                path: "services",
+                component: Services,
+                name: "services",
+                children: [
                     { 
                         path: ":id",
                         alias: "/s/:id",
@@ -46,15 +70,19 @@ const routes = [
                     }
                 ] 
             },
-            { path: "dashboard", components: 
-                {
+            { 
+                path: "dashboard", 
+                components: {
                     default: Dashboard,
                     footer: DashboardFooter
                 } 
             }
         ] 
     },
-    { path: "/login", component: Login }
+    { 
+        path: "/login",
+        component: Login
+    }
 ];
 
 const router = createRouter({
