@@ -31,6 +31,9 @@
                 </div>
             </div>
         </div>
+        <div class="footer">
+            <RouterView name="footer" />
+        </div>
     </div>
 </template>
 
@@ -56,6 +59,15 @@
     .list-group-item {
         border-top: none;
         border-right: none;
+    }
+
+    .footer{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #ccc;
+        text-align: center;
     }
 
     /* .router-link-active{

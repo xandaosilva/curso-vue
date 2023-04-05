@@ -3,10 +3,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 // Components
 import Contracts from '@/components/sellers/Contracts.vue';
 import Dashboard from '@/components/dashboard/Dashboard.vue';
+import DashboardFooter from '@/components/dashboard/DashboardFooter.vue';
 import Home from '@/views/Home.vue';
+import Indicators from '@/components/services/Indicators.vue';
 import Lead from '@/components/sellers/Lead.vue';
 import Leads from '@/components/sellers/Leads.vue';
 import Login from '@/views/Login.vue';
+import Options from '@/components/services/Options.vue';
 import Sellers from '@/components/sellers/Sellers.vue';
 import SellersDefault from '@/components/sellers/SellersDefault.vue';
 import Service from '@/components/services/Service.vue';
@@ -30,10 +33,23 @@ const routes = [
             },
             { path: "services", component: Services, name: "services", children: 
                 [
-                    { path: ":id", component: Service, name: "service" }
+                    { 
+                        path: ":id",
+                        components: {
+                            default: Service,
+                            options: Options,
+                            indicators: Indicators
+                        },
+                        name: "service"
+                    }
                 ] 
             },
-            { path: "dashboard", component: Dashboard }
+            { path: "dashboard", components: 
+                {
+                    default: Dashboard,
+                    footer: DashboardFooter
+                } 
+            }
         ] 
     },
     { path: "/login", component: Login }
