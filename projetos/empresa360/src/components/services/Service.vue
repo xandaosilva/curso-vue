@@ -15,7 +15,19 @@
         mixins: [ApiMixin],
         created(){
             this.getDataApi(`http://localhost:3000/services/${this.$route.params.id}`);
-        }
+        },
+        beforeRouteUpdate(to){
+            if(to.params.id !== undefined){
+                this.getDataApi(`http://localhost:3000/services/${to.params.id}`);
+            }
+        },
+        // watch:{
+        //     $route(to){
+        //         if(to.params.id !== undefined){
+        //             this.getDataApi(`http://localhost:3000/services/${to.params.id}`);
+        //         }
+        //     }
+        // },
     }
 </script>
 

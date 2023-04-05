@@ -7,7 +7,9 @@
                 <div class="card" style="width: 11rem;">
                     <img :src="`/img/${object.icon}`" alt="Serviços" class="card-img-top">
                     <div class="card-body text-center">
-                        <p class="card-text">{{ object.service }}</p>
+                        <RouterLink :to="{name: 'service', params: { id: object.id }}" >
+                            <p class="card-text">{{ object.service }}</p>
+                        </RouterLink>
                     </div>
                 </div>
             </div>
@@ -18,7 +20,7 @@
 
 <script>
     import ApiMixin from '@/mixins/ApiMixin';
-    import { RouterView } from 'vue-router';
+    import { RouterLink, RouterView } from 'vue-router';
 
     export default {
     name: "Services",
@@ -26,7 +28,7 @@
     created() {
         this.getDataApi("http://localhost:3000/services");
     },
-    components: { RouterView }
+    components: { RouterView, RouterLink }
 }
 </script>
 
