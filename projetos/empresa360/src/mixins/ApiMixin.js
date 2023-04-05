@@ -1,10 +1,10 @@
 export default {
     data: () => ({
-        dataLead: {}
+        obj: {}
     }),
     methods: {
         getDataApi(url) {
-            fetch(url).then(response => response.json()).then(response => this.dataLead = response);
+            fetch(url).then(response => response.json()).then(response => this.obj = response);
         }
     },
 }

@@ -11,13 +11,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="lead in dataLead" :key="lead.id">
-                    <td>{{ lead.id }}</td>
-                    <td>{{ lead.name }}</td>
-                    <td>{{ lead.phone }}</td>
+                <tr v-for="object in obj" :key="object.id">
+                    <td>{{ object.id }}</td>
+                    <td>{{ object.name }}</td>
+                    <td>{{ object.phone }}</td>
                     <td>
                         <!-- <RouterLink :to="`/home/sellers/leads/${lead.id}`" class="btn btn-sm btn-primary"> -->
-                        <RouterLink :to="{ name: 'lead', params: { id: lead.id } }" class="btn btn-sm btn-primary">
+                        <RouterLink :to="{ name: 'lead', params: { id: object.id } }" class="btn btn-sm btn-primary">
                             <i class="bi bi-pencil-square" style="cursor: pointer;"></i>
                         </RouterLink>
                     </td>

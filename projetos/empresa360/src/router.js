@@ -9,6 +9,7 @@ import Leads from '@/components/sellers/Leads.vue';
 import Login from '@/views/Login.vue';
 import Sellers from '@/components/sellers/Sellers.vue';
 import SellersDefault from '@/components/sellers/SellersDefault.vue';
+import Service from '@/components/services/Service.vue';
 import Services from '@/components/services/Services.vue';
 import Site from '@/views/Site.vue';
 // createWebHashHistory
@@ -27,7 +28,11 @@ const routes = [
                     { path: "", component: SellersDefault }
                 ]
             },
-            { path: "services", component: Services, name: "services" },
+            { path: "services", component: Services, name: "services", children: 
+                [
+                    { path: ":id", component: Service, name: "service" }
+                ] 
+            },
             { path: "dashboard", component: Dashboard }
         ] 
     },

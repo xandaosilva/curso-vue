@@ -4,19 +4,19 @@
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Id</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control-plaintext" :value="dataLead.id" readonly>
+                <input type="text" class="form-control-plaintext" :value="obj.id" readonly>
             </div>
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Nome</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" :value="dataLead.name">
+                <input type="text" class="form-control" :value="obj.name">
             </div>
         </div>
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Telefone</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" :value="dataLead.phone">
+                <input type="text" class="form-control" :value="obj.phone">
             </div>
         </div>
         <div class="col-auto d-flex justify-content-between">
