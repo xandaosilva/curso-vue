@@ -49,7 +49,8 @@ const routes = [
                     },
                     { 
                         path: "",
-                        component: SellersDefault
+                        component: SellersDefault,
+                        name: "sellers",
                     }
                 ]
             },
@@ -82,6 +83,33 @@ const routes = [
     { 
         path: "/login",
         component: Login
+    },
+    {
+        path: "/redirects-1",
+        redirect: "/home/services"
+    },
+    {
+        path: "/redirects-2",
+        redirect: { 
+            name: "leads"
+        }
+    },
+    {
+        path: "/redirects-3",
+        redirect: "/home/sellers"
+    },
+    {
+        path: "/redirects-4",
+        redirect: { 
+            name: "sellers"
+        }
+    },
+    {
+        path: "/redirects-5",
+        redirect: to => {
+            console.log(to);
+            return { name: "sellers" }
+        }
     }
 ];
 
