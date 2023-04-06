@@ -15,8 +15,8 @@
             <tbody>
                 <tr v-for="object in obj" :key="object.id">
                     <td>{{ object.id }}</td>
-                    <td>{{ object.leadId }}</td>
-                    <td>{{ object.serviceId }}</td>
+                    <td>{{ object.lead.name }}</td>
+                    <td>{{ object.service.service }}</td>
                     <td>{{ object.initial_date }}</td>
                     <td>{{ object.final_date }}</td>
                     <td>
@@ -38,7 +38,7 @@
     name: "Contracts",
     mixins: [ApiMixin],
     created() {
-        this.getDataApi("http://localhost:3000/contracts");
+        this.getDataApi("http://localhost:3000/contracts?_expand=lead&_expand=service");
     },
     components: { RouterLink }
 }
