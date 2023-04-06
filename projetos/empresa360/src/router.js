@@ -9,6 +9,7 @@ import Indicators from '@/components/services/Indicators.vue';
 import Lead from '@/components/sellers/Lead.vue';
 import Leads from '@/components/sellers/Leads.vue';
 import Login from '@/views/Login.vue';
+import PageNotFound from '@/views/PageNotFound.vue';
 import Options from '@/components/services/Options.vue';
 import Sellers from '@/components/sellers/Sellers.vue';
 import SellersDefault from '@/components/sellers/SellersDefault.vue';
@@ -110,6 +111,10 @@ const routes = [
             console.log(to);
             return { name: "sellers" }
         }
+    },
+    {
+        path: "/:catchAll(.*)*",
+        component: PageNotFound
     }
 ];
 
