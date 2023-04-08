@@ -66,27 +66,18 @@
     }),
     methods: {
         handleSearch(){
-            Object.keys(this.formSearch).forEach(key => {
-                if(this.formSearch[key] === ""){
-                    delete this.formSearch[key];
-                }
-            });
-
-            const queryParams = new URLSearchParams(this.formSearch).toString();
-            const url = `http://localhost:3000/contracts?${this.paramsRelationship}&${queryParams}`;
-            this.getDataApi(url);
+            const url = `http://localhost:3000/contracts?${this.paramsRelationship}`;
+            this.getDataApi(url, this.formSearch);
         }
     },
     mixins: [ApiMixin],
     created() {
-        const queryParams = new URLSearchParams(this.$route.query).toString();
-        const url = `http://localhost:3000/contracts?${this.paramsRelationship}&${queryParams}`;
-        this.getDataApi(url);
+        const url = `http://localhost:3000/contracts?${this.paramsRelationship}`;
+        this.getDataApi(url,this.$route.query);
     },
     beforeRouteUpdate(to, from, next){
-        const queryParams = new URLSearchParams(to.query).toString();
-        const url = `http://localhost:3000/contracts?${this.paramsRelationship}&${queryParams}`
-        this.getDataApi(url);
+        const url = `http://localhost:3000/contracts?${this.paramsRelationship}`;
+        this.getDataApi(url, to.query);
         next();
     },
     components: { RouterLink }
