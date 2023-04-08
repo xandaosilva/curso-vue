@@ -11,6 +11,9 @@
         props: ["id"],
         created(){
             // console.log("Parâmetro via props", this.id);
+        },
+        beforeRouteUpdate(){
+            console.log("Guarda de rota beforeRouteUpdate.");
         }
     }
 </script>

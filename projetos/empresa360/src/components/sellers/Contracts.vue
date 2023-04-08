@@ -29,7 +29,6 @@
                     <th scope="col">Serviço</th>
                     <th scope="col">Data inicial</th>
                     <th scope="col">Data final</th>
-                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -39,11 +38,6 @@
                     <td>{{ object.service.service }}</td>
                     <td>{{ object.initial_date }}</td>
                     <td>{{ object.final_date }}</td>
-                    <td>
-                        <RouterLink :to="{ name: 'lead', params: { id: object.id } }" class="btn btn-sm btn-primary">
-                            <i class="bi bi-pencil-square" style="cursor: pointer;"></i>
-                        </RouterLink>
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -52,7 +46,6 @@
 
 <script>
     import ApiMixin from '@/mixins/ApiMixin';
-    import { RouterLink } from 'vue-router';
 
     export default {
     name: "Contracts",
@@ -79,8 +72,7 @@
         const url = `http://localhost:3000/contracts?${this.paramsRelationship}`;
         this.getDataApi(url, to.query);
         next();
-    },
-    components: { RouterLink }
+    }
 }
 </script>
 

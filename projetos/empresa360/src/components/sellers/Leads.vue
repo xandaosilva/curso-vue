@@ -37,6 +37,12 @@
     created() {
         this.getDataApi("http://localhost:3000/leads");
     },
+    beforeRouteEnter(){
+        console.log("Guarda de componente beforeRouteEnter");
+    },
+    beforeRouteLeave(){
+        console.log("Guarda de componente beforeRouteLeave");
+    },
     components: { RouterLink }
 }
 </script>

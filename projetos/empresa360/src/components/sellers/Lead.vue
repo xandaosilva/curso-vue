@@ -35,6 +35,10 @@
         mixins: [ApiMixin],
         created(){
             this.getDataApi(`http://localhost:3000/leads/${this.id}`);
+        },
+        beforeRouteLeave(){
+            const confirm = window.confirm("Deseja sair deste formulário?");
+            return confirm;
         }
     }
 </script>

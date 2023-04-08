@@ -21,11 +21,17 @@ import Site from '@/views/Site.vue';
 const routes = [
     { 
         path: "/",
-        component: Site 
+        component: Site,
+        meta: { 
+            requireAuth: false 
+        }
     },
     { 
         path: "/home", 
         component: Home,
+        meta: {
+            requireAuth: true
+        },
         alias: "/app",
         children: [
             { 
@@ -35,7 +41,10 @@ const routes = [
                     { 
                         path: "leads",
                         component: Leads,
-                        name: "leads" 
+                        name: "leads",
+                        beforeEnter(){
+                            console.log("Guarde de rota beforeEnter");
+                        } 
                     },
                     { 
                         path: "leads/:id/:otherParam",
@@ -99,7 +108,10 @@ const routes = [
     },
     { 
         path: "/login",
-        component: Login
+        component: Login,
+        meta:{
+            requireAuth: false
+        }
     },
     {
         path: "/redirects-1",
@@ -137,6 +149,18 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes: routes
+});
+
+router.beforeEach(() => {
+    console.log("Guard global beforeEach");
+});
+
+router.afterEach(() => {
+    console.log("Guarda global afterEach.");
+});
+
+router.beforeResolve(() => {
+    console.log("Guarda global beforeResolve.");
 });
 
 export default router;
