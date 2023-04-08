@@ -13,8 +13,9 @@
     export default {
         name: "Service",
         mixins: [ApiMixin],
+        props: ["id"],
         created(){
-            this.getDataApi(`http://localhost:3000/services/${this.$route.params.id}`);
+            this.getDataApi(`http://localhost:3000/services/${this.id}`);
         },
         beforeRouteUpdate(to){
             if(to.params.id !== undefined){

@@ -31,9 +31,10 @@
 
     export default {
         name: "Lead",
+        props: ["id", "otherParam"],
         mixins: [ApiMixin],
         created(){
-            this.getDataApi(`http://localhost:3000/leads/${this.$route.params.id}`);
+            this.getDataApi(`http://localhost:3000/leads/${this.id}`);
         }
     }
 </script>

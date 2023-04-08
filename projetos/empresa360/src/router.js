@@ -38,10 +38,21 @@ const routes = [
                         name: "leads" 
                     },
                     { 
-                        path: "leads/:id",
+                        path: "leads/:id/:otherParam",
+                        props: true,
+                        // props: {
+                        //     id: 5,
+                        //     otherParam: "pt-br"
+                        // },
+                        // props: () => {
+                        //     return {
+                        //         id: 3,
+                        //         otherParam: "en"
+                        //     }
+                        // },
                         component: Lead,
                         name: "lead",
-                        alias: "/l/:id" 
+                        alias: "/l/:id/:otherParam" 
                     },
                     { 
                         path: "contracts",
@@ -62,6 +73,11 @@ const routes = [
                 children: [
                     { 
                         path: ":id",
+                        props: {
+                            default: true,
+                            options: true,
+                            indicators: true
+                        },
                         alias: "/s/:id",
                         components: {
                             default: Service,
