@@ -6,19 +6,19 @@
                 <div class="row">
                     <div class="col-6">
                         <label class="form-label">ID Contrato:</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" v-model="formSearch.id_like">
                     </div>
                     <div class="col-6">
                         <label class="form-label">Data início:</label>
                         <div class="input-group">
-                            <input type="date" class="form-control">
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" v-model="formSearch.initial_date_gte">
+                            <input type="date" class="form-control" v-model="formSearch.initial_date_lte">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button type="button" class="btn btn-primary">Pesquisar</button>
+                <button type="button" class="btn btn-primary" @click="handleSearch">Pesquisar</button>
             </div>
         </div>
         <table class="table table-hover">
@@ -57,8 +57,26 @@
     export default {
     name: "Contracts",
     data: () => ({
-        paramsRelationship: "_expand=lead&_expand=service"
+        paramsRelationship: "_expand=lead&_expand=service",
+        formSearch: {
+            id_like: "",
+            initial_date_gte: "",
+            initial_date_lte: ""
+        }
     }),
+    methods: {
+        handleSearch(){
+            Object.keys(this.formSearch).forEach(key => {
+                if(this.formSearch[key] === ""){
+                    delete this.formSearch[key];
+                }
+            });
+
+            const queryParams = new URLSearchParams(this.formSearch).toString();
+            const url = `http://localhost:3000/contracts?${this.paramsRelationship}&${queryParams}`;
+            this.getDataApi(url);
+        }
+    },
     mixins: [ApiMixin],
     created() {
         const queryParams = new URLSearchParams(this.$route.query).toString();
