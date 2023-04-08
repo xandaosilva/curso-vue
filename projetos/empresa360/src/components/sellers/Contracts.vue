@@ -1,6 +1,10 @@
 <template>
     <div>
         <h5>Contratos</h5>
+        <RouterLink class="btn btn-primary" :to="{ name: 'contracts', query: { leadId_like: 1 } }">Lead 1</RouterLink>
+        <RouterLink class="btn btn-primary" to="/home/sellers/contracts?serviceId_like=2">Serviço 2</RouterLink>
+        <RouterLink class="btn btn-success" :to="{ name: 'contracts', query: { leadId_like: 1, serviceId_like: 2 } }">Lead 1 e Serviço 2</RouterLink>
+        <RouterLink class="btn btn-success" to="/home/sellers/contracts?serviceId_like=2&leadId_like=2">Serviço 2 e Lead 2</RouterLink>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -36,9 +40,18 @@
 
     export default {
     name: "Contracts",
+    data: () => ({
+        paramsRelationship: "_expand=lead&_expand=service"
+    }),
     mixins: [ApiMixin],
     created() {
-        this.getDataApi("http://localhost:3000/contracts?_expand=lead&_expand=service");
+        this.getDataApi(`http://localhost:3000/contracts?${this.paramsRelationship}`);
+    },
+    beforeRouteUpdate(to, from, next){
+        const queryParams = new URLSearchParams(to.query).toString();
+        const url = `http://localhost:3000/contracts?${this.paramsRelationship}&${queryParams}`
+        this.getDataApi(url);
+        next();
     },
     components: { RouterLink }
 }
