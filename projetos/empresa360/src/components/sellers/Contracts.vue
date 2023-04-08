@@ -1,10 +1,26 @@
 <template>
     <div>
-        <h5>Contratos</h5>
-        <RouterLink class="btn btn-primary" :to="{ name: 'contracts', query: { leadId_like: 1 } }">Lead 1</RouterLink>
-        <RouterLink class="btn btn-primary" to="/home/sellers/contracts?serviceId_like=2">Serviço 2</RouterLink>
-        <RouterLink class="btn btn-success" :to="{ name: 'contracts', query: { leadId_like: 1, serviceId_like: 2 } }">Lead 1 e Serviço 2</RouterLink>
-        <RouterLink class="btn btn-success" to="/home/sellers/contracts?serviceId_like=2&leadId_like=2">Serviço 2 e Lead 2</RouterLink>
+        <div class="card mb-4">
+            <div class="card-header">Contratos</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label">ID Contrato:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Data início:</label>
+                        <div class="input-group">
+                            <input type="date" class="form-control">
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary">Pesquisar</button>
+            </div>
+        </div>
         <table class="table table-hover">
             <thead>
                 <tr>
