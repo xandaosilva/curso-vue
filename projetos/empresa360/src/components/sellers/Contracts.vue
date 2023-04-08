@@ -45,7 +45,9 @@
     }),
     mixins: [ApiMixin],
     created() {
-        this.getDataApi(`http://localhost:3000/contracts?${this.paramsRelationship}`);
+        const queryParams = new URLSearchParams(this.$route.query).toString();
+        const url = `http://localhost:3000/contracts?${this.paramsRelationship}&${queryParams}`;
+        this.getDataApi(url);
     },
     beforeRouteUpdate(to, from, next){
         const queryParams = new URLSearchParams(to.query).toString();
