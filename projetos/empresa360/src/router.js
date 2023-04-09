@@ -1,21 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 // Components
-import Contracts from '@/components/sellers/Contracts.vue';
-import Dashboard from '@/components/dashboard/Dashboard.vue';
-import DashboardFooter from '@/components/dashboard/DashboardFooter.vue';
-import Home from '@/views/Home.vue';
-import Indicators from '@/components/services/Indicators.vue';
-import Lead from '@/components/sellers/Lead.vue';
-import Leads from '@/components/sellers/Leads.vue';
-import Login from '@/views/Login.vue';
-import PageNotFound from '@/views/PageNotFound.vue';
-import Options from '@/components/services/Options.vue';
-import Sellers from '@/components/sellers/Sellers.vue';
-import SellersDefault from '@/components/sellers/SellersDefault.vue';
-import Service from '@/components/services/Service.vue';
-import Services from '@/components/services/Services.vue';
-import Site from '@/views/Site.vue';
+// Lazy loading
+const Contracts = () =>  import(/* webpackChunkName: "sellers" */ '@/components/sellers/Contracts.vue');
+const Dashboard = () => import(/* webpackChunkName: "dashboard" */ '@/components/dashboard/Dashboard.vue');
+const DashboardFooter = () => import(/* webpackChunkName: "dashboard" */ '@/components/dashboard/DashboardFooter.vue');
+const Home = () => import('@/views/Home.vue');
+const Indicators = () => import(/* webpackChunkName: "services" */ '@/components/services/Indicators.vue');
+const Lead = () => import(/* webpackChunkName: "sellers" */ '@/components/sellers/Lead.vue');
+const Leads = () => import(/* webpackChunkName: "sellers" */ '@/components/sellers/Leads.vue');
+const Login = () => import('@/views/Login.vue');
+const PageNotFound = () => import('@/views/PageNotFound.vue');
+const Options = () => import(/* webpackChunkName: "services" */ '@/components/services/Options.vue');
+const Sellers = () => import(/* webpackChunkName: "sellers" */ '@/components/sellers/Sellers.vue');
+const SellersDefault = () => import(/* webpackChunkName: "sellers" */ '@/components/sellers/SellersDefault.vue');
+const Service = () => import(/* webpackChunkName: "services" */ '@/components/services/Service.vue');
+const Services = () => import(/* webpackChunkName: "services" */ '@/components/services/Services.vue');
+const Site = () => import('@/views/Site.vue');
 // createWebHashHistory
 
 const routes = [
