@@ -87,7 +87,9 @@
               <h1>{{ pokemon.id }} {{ pokemon.name }}</h1>
               <span>{{ pokemon.type }}</span>
               <div class="cartao-pokemon-img">
-                <img :src="require(`@/assets/imgs/pokemons/${pokemon.image}`)">
+                <transition enter-active-class="animate__animated animate__fadeInDown" appear>
+                  <img :src="require(`@/assets/imgs/pokemons/${pokemon.image}`)">
+                </transition>
               </div>
             </div>
           </div>
