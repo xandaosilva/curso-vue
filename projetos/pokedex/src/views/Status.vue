@@ -2,25 +2,60 @@
     <div>
         <span>Força:</span>
         <div class="progress mb-2">
-            <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30</div>
+            <div class="progress-bar" 
+                role="progressbar" 
+                :style="`width: ${pokemon.status.force}%;`" 
+                :aria-valuenow="pokemon.status.force" 
+                aria-valuemin="0" 
+                aria-valuemax="100"
+            >
+                {{ pokemon.status.force }}
+            </div>
         </div>
         <span>Agilidade:</span>
         <div class="progress mb-2">
-            <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40</div>
+            <div class="progress-bar" 
+                role="progressbar" 
+                :style="`width: ${pokemon.status.agility}%;`" 
+                :aria-valuenow="pokemon.status.agility" 
+                aria-valuemin="0" 
+                aria-valuemax="100"
+            >
+                {{ pokemon.status.agility }}
+            </div>
         </div>
         <span>Ataque:</span>
         <div class="progress mb-2">
-            <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20</div>
+            <div class="progress-bar" 
+                role="progressbar" 
+                :style="`width: ${pokemon.status.attack}%;`" 
+                :aria-valuenow="pokemon.status.attack" 
+                aria-valuemin="0" 
+                aria-valuemax="100"
+            >
+                {{ pokemon.status.attack }}
+            </div>
         </div>
         <span>Defesa:</span>
         <div class="progress mb-2">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25</div>
+            <div class="progress-bar" 
+                role="progressbar" 
+                :style="`width: ${pokemon.status.defense}%;`" 
+                :aria-valuenow="pokemon.status.defense" 
+                aria-valuemin="0" 
+                aria-valuemax="100"
+            >
+                {{ pokemon.status.defense }}
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default{
-    name: "Habilidades"
+    name: "Status",
+    props:{
+        pokemon: Object
+    }
 }
 </script>

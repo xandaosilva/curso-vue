@@ -1,13 +1,16 @@
 <template>
     <div>
-        <p>Identificador: 001</p>
-        <p>Nome: Bulbassaur</p>
-        <p>Tipo: Grama</p>
+        <p>Identificador: {{ pokemon.id }}</p>
+        <p>Nome: {{ pokemon.name }}</p>
+        <p>Tipo: {{ pokemon.type }}</p>
     </div>
 </template>
 
 <script>
-export default{
-    name: "Habilidades"
+export default {
+    name: "Sobre",
+    props:{
+        pokemon: Object
+    }
 }
 </script>

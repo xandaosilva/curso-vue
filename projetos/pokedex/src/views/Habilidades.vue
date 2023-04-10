@@ -2,14 +2,8 @@
     <div>
         <table class="table text-white">
             <tbody>
-                <tr>
-                    <td>Ataque fúria</td>
-                    <td class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-danger btn-sm">x</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Esquiva</td>
+                <tr v-for="(skill, index) in pokemon.skills" :key="index">
+                    <td>{{ skill }}</td>
                     <td class="d-flex justify-content-end">
                         <button type="button" class="btn btn-danger btn-sm">x</button>
                     </td>
@@ -22,7 +16,10 @@
 
 <script>
 export default{
-    name: "Habilidades"
+    name: "Habilidades",
+    props:{
+        pokemon: Object
+    }
 }
 </script>
 

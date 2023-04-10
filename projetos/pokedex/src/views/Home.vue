@@ -54,7 +54,7 @@
               <router-link class="nav-item nav-link text-white" :to="{ path: '/habilidades' }" exact-active-class="active">Habilidades</router-link>
             </nav>
             <div class="detalhes">
-              <router-view v-slot="{ Component }">
+              <router-view v-slot="{ Component }" :pokemon="pokemon">
                 <transition enter-active-class="animate__animated animate__zoomInDown">
                   <component :is="Component" />
                 </transition>
@@ -104,27 +104,15 @@ export default {
     display: false,
     displayEvolution: false,
     pokemon: {},
-    pokemons: [
-      { id: 1, name: 'Bulbasaur', type: 'grama', image: '001.png', evolutions: [2,3] },
-      { id: 2, name: 'Ivysaur', type: 'grama', image: '002.png', evolutions: [3] },
-      { id: 3, name: 'Venusaur', type: 'grama', image: '003.png', evolutions: [] },
-      { id: 4, name: 'Charmander', type: 'fogo', image: '004.png', evolutions: [5, 6] },
-      { id: 5, name: 'Charmeleon', type: 'fogo', image: '005.png', evolutions: [6] },
-      { id: 6, name: 'Charizard', type: 'fogo', image: '006.png', evolutions: [] },
-      { id: 7, name: 'Squirtle', type: 'agua', image: '007.png', evolutions: [8,9] },
-      { id: 8, name: 'Wartortle', type: 'agua', image: '008.png', evolutions: [9] },
-      { id: 9, name: 'Blastoise', type: 'agua', image: '009.png', evolutions: [] },
-      { id: 10, name: 'Caterpie', type: 'inseto', image: '010.png', evolutions: [11,12] },
-      { id: 11, name: 'Metapod', type: 'inseto', image: '011.png', evolutions: [12] },
-      { id: 12, name: 'Butterfree', type: 'inseto', image: '012.png', evolutions: [] },
-      { id: 13, name: 'Weedle', type: 'inseto', image: '013.png', evolutions: [14,15] },
-      { id: 14, name: 'Kakuna', type: 'inseto', image: '014.png', evolutions: [15] },
-      { id: 15, name: 'Beedrill', type: 'inseto', image: '015.png', evolutions: [] },
-      { id: 16, name: 'Pidgey', type: 'normal', image: '016.png', evolutions: [17,18] },
-      { id: 17, name: 'Pidgeotto', type: 'normal', image: '017.png', evolutions: [18] },
-      { id: 18, name: 'Pidgeot', type: 'normal', image: '018.png', evolutions: [] }
-    ]
+    pokemons: []
   }),
+  created(){
+    fetch("http://localhost:3000/pokemons").then(response => {
+      return response.json();
+    }).then(data => {
+      this.pokemons = data;
+    });
+  },
   methods:{
     displayEvolutionTransition(){
       this.displayEvolution = true;
