@@ -110,3 +110,29 @@
     64%{ transform: scale(1,1) translateY(0px); }
     100%{ transform: scale(1,1) translateY(0px); }
 }
+
+/* Slide up to down with custom class */
+.enter-initial-state{
+    opacity: 0;
+    transform: translateY(-150px);
+}
+
+.enter-final-state{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.transition{
+    transition: all 2s;
+}
+
+.leave-initial-state{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.leave-final-state{
+    opacity: 0;
+    transform: translateY(50px);
+}
+
