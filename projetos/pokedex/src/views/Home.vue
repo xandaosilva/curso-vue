@@ -8,13 +8,17 @@
             <div class="pokemon">
               <!-- <transition name="jump" type="animation"> -->
               <!-- <transition name="jump" :duration="{ enter: 2000, leave: 1000 }"> -->
-              <transition 
+              <!-- <transition 
                 enter-from-class="enter-initial-state"
                 enter-active-class="transition"
                 enter-to-class="enter-final-state"
                 leave-from-class="leave-initial-state"
                 leave-active-class="transition"
                 leave-to-class="leave-final-state"
+              > -->
+              <transition 
+                enter-active-class="animate__animated animate__bounceIn"
+                leave-active-class="animate__animated animate__bounceOut"
               >
                 <img src="@/assets/imgs/pokemons/001.png" v-if="display">
               </transition>
