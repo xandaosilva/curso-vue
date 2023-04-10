@@ -41,11 +41,8 @@
                 <img :src="require(`@/assets/imgs/pokemons/${pokemon.image}`)" v-if="display">
               </transition>
               <div class="evolucoes">
-                <transition name="fade">
-                  <img src="@/assets/imgs/pokemons/003.png" v-if="displayEvolution">
-                </transition>
-                <transition name="fade">
-                  <img src="@/assets/imgs/pokemons/002.png" v-if="displayEvolution">
+                <transition name="fade" v-for="evolution in pokemon.evolutions" :key="evolution">
+                  <img :src="require(`@/assets/imgs/pokemons/${evolution.toString().padStart(3, '0')}.png`)" v-if="displayEvolution">
                 </transition>
               </div>
             </div>
@@ -135,6 +132,7 @@ export default {
       }
       this.pokemon = pokemon;
       this.display = !this.display;
+      this.displayEvolution = !this.displayEvolution;
     },
 
     beforeEnter(el){
@@ -239,9 +237,9 @@ body {
 }
 
 .cartao-pokemon img {
-    max-width:60%;
-    max-height:60%;
-    float: right;
+  max-width:60%;
+  max-height:60%;
+  float: right;
 }
 
 .bg-grama {
@@ -300,7 +298,6 @@ body {
   cursor: pointer;
   max-width: 100%;
   max-height: 100%;
-  float: right;
 }
 
 </style>
