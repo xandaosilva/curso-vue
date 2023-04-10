@@ -6,7 +6,7 @@
           <div class="card-header"></div>
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
-              <transition name="flip">
+              <transition name="jump">
                 <img src="@/assets/imgs/pokemons/001.png" v-if="display">
               </transition>
               <div class="evolucoes">
