@@ -125,14 +125,22 @@ export default {
     },
 
     analyzePokemon(pokemon){
+      let changePokemonAnalyzed = false;
+
       if((this.pokemon.id !== pokemon.id) && this.display){
         setTimeout(() => {
           this.analyzePokemon(pokemon);
         }, 1000);
+
+        changePokemonAnalyzed = true;
       }
       this.pokemon = pokemon;
       this.display = !this.display;
       this.displayEvolution = !this.displayEvolution;
+
+      if(!this.display && !changePokemonAnalyzed){
+        this.pokemon = {};
+      }
     },
 
     beforeEnter(el){
