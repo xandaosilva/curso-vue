@@ -76,11 +76,11 @@
         </div>
         <div class="row">
           <div class="pokedex-catalogo">
-            <div class="cartao-pokemon bg-grama" @click="display = !display">
-              <h1>1 Bulbasaur</h1>
-              <span>grama</span>
+            <div :class="`cartao-pokemon bg-${pokemon.type}`" v-for="pokemon in pokemons" :key="pokemon.id" @click="display = !display">
+              <h1>{{ pokemon.id }} {{ pokemon.name }}</h1>
+              <span>{{ pokemon.type }}</span>
               <div class="cartao-pokemon-img">
-                <img src="@/assets/imgs/pokemons/001.png">
+                <img :src="require(`@/assets/imgs/pokemons/${pokemon.image}`)">
               </div>
             </div>
           </div>
@@ -95,7 +95,27 @@ export default {
   name: 'Home',
   data: () => ({
     display: false,
-    displayEvolution: false
+    displayEvolution: false,
+    pokemons: [
+      { id: 1, name: 'Bulbasaur', type: 'grama', image: '001.png', evolutions: [2,3] },
+      { id: 2, name: 'Ivysaur', type: 'grama', image: '002.png', evolutions: [3] },
+      { id: 3, name: 'Venusaur', type: 'grama', image: '003.png', evolutions: [] },
+      { id: 4, name: 'Charmander', type: 'fogo', image: '004.png', evolutions: [5, 6] },
+      { id: 5, name: 'Charmeleon', type: 'fogo', image: '005.png', evolutions: [6] },
+      { id: 6, name: 'Charizard', type: 'fogo', image: '006.png', evolutions: [] },
+      { id: 7, name: 'Squirtle', type: 'agua', image: '007.png', evolutions: [8,9] },
+      { id: 8, name: 'Wartortle', type: 'agua', image: '008.png', evolutions: [9] },
+      { id: 9, name: 'Blastoise', type: 'agua', image: '009.png', evolutions: [] },
+      { id: 10, name: 'Caterpie', type: 'inseto', image: '010.png', evolutions: [11,12] },
+      { id: 11, name: 'Metapod', type: 'inseto', image: '011.png', evolutions: [12] },
+      { id: 12, name: 'Butterfree', type: 'inseto', image: '012.png', evolutions: [] },
+      { id: 13, name: 'Weedle', type: 'inseto', image: '013.png', evolutions: [14,15] },
+      { id: 14, name: 'Kakuna', type: 'inseto', image: '014.png', evolutions: [15] },
+      { id: 15, name: 'Beedrill', type: 'inseto', image: '015.png', evolutions: [] },
+      { id: 16, name: 'Pidgey', type: 'normal', image: '016.png', evolutions: [17,18] },
+      { id: 17, name: 'Pidgeotto', type: 'normal', image: '017.png', evolutions: [18] },
+      { id: 18, name: 'Pidgeot', type: 'normal', image: '018.png', evolutions: [] }
+    ]
   }),
   methods:{
     displayEvolutionTransition(){
