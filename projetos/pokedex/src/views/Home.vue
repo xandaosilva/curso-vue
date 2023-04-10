@@ -20,7 +20,7 @@
                 enter-active-class="animate__animated animate__bounceIn"
                 leave-active-class="animate__animated animate__bounceOut"
               > -->
-              <transition
+              <!-- <transition
                 @before-enter="beforeEnter"
                 @enter="enter"
                 @after-enter="afterEnter"
@@ -31,15 +31,21 @@
                 @leave-cancelled="leaveCancelld"
                 enter-active-class="animate__animated animate__bounceIn"
                 leave-active-class="animate__animated animate__bounceOut"
+              > -->
+              <transition
+                @after-enter="displayEvolutionTransition"
+                @before-leave="hideDisplayEvolution"
+                enter-active-class="animate__animated animate__bounceIn"
+                leave-active-class="animate__animated animate__bounceOut"
               >
                 <img src="@/assets/imgs/pokemons/001.png" v-if="display">
               </transition>
               <div class="evolucoes">
                 <transition name="fade">
-                  <img src="@/assets/imgs/pokemons/003.png" v-if="display">
+                  <img src="@/assets/imgs/pokemons/003.png" v-if="displayEvolution">
                 </transition>
                 <transition name="fade">
-                  <img src="@/assets/imgs/pokemons/002.png" v-if="display">
+                  <img src="@/assets/imgs/pokemons/002.png" v-if="displayEvolution">
                 </transition>
               </div>
             </div>
@@ -88,9 +94,18 @@
 export default {
   name: 'Home',
   data: () => ({
-    display: false
+    display: false,
+    displayEvolution: false
   }),
   methods:{
+    displayEvolutionTransition(){
+      this.displayEvolution = true;
+    },
+
+    hideDisplayEvolution(){
+      this.displayEvolution = false;
+    },
+
     beforeEnter(el){
       console.log("Antes da entrada.", el);
     },
