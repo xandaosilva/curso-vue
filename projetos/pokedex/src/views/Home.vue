@@ -6,7 +6,9 @@
           <div class="card-header"></div>
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
-              <img src="@/assets/imgs/pokemons/001.png">
+              <transition>
+                <img src="@/assets/imgs/pokemons/001.png" v-if="display">
+              </transition>
             </div>
           </div>
           <div class="card-footer">
@@ -35,7 +37,7 @@
         </div>
         <div class="row">
           <div class="pokedex-catalogo">
-            <div class="cartao-pokemon bg-grama">
+            <div class="cartao-pokemon bg-grama" @click="display = !display">
               <h1>1 Bulbasaur</h1>
               <span>grama</span>
               <div class="cartao-pokemon-img">
@@ -51,7 +53,10 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  data: () => ({
+    display: false
+  }),
 }
 </script>
 
@@ -153,10 +158,35 @@ body {
 .pokemon {
   display: block;
   text-align: center;
+  height: 215px;
 }
 
 .detalhes {
   margin: 20px 30px 20px 30px;
+}
+
+.v-enter-from{
+  opacity: 0;
+}
+
+.v-enter-active{
+  transition: opacity 2s;
+}
+
+.v-enter-to{
+  opacity: 1;  
+}
+
+.v-leave-from{
+  opacity: 1;
+}
+
+.v-leave-active{
+  transition: opacity 2s;
+}
+
+.v-leave-to{
+  opacity: 0;
 }
 
 </style>
