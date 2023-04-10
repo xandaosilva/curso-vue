@@ -95,9 +95,13 @@ export default {
       console.log("Antes da entrada.", el);
     },
 
-    enter(el, done){
+    // enter(el, done){
+    //   console.log("Durante a entrada.", el);
+    //   done();
+    // },
+    
+    enter(el){
       console.log("Durante a entrada.", el);
-      done();
     },
 
     afterEnter(el){
@@ -112,11 +116,15 @@ export default {
       console.log("Antes da saída.", el);
     },
 
-    leave(el,done){
+    // leave(el,done){
+    //   console.log("Saída.", el);
+    //   done();
+    // },
+    
+    leave(el){
       console.log("Saída.", el);
-      done();
     },
-
+    
     afterLeave(el){
       console.log("Depois da saída.", el);
     },
