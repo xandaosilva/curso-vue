@@ -38,7 +38,7 @@
                 enter-active-class="animate__animated animate__bounceIn"
                 leave-active-class="animate__animated animate__bounceOut"
               >
-                <img src="@/assets/imgs/pokemons/001.png" v-if="display">
+                <img :src="require(`@/assets/imgs/pokemons/${pokemon.image}`)" v-if="display">
               </transition>
               <div class="evolucoes">
                 <transition name="fade">
@@ -76,7 +76,7 @@
         </div>
         <div class="row">
           <div class="pokedex-catalogo">
-            <div :class="`cartao-pokemon bg-${pokemon.type}`" v-for="pokemon in pokemons" :key="pokemon.id" @click="display = !display">
+            <div :class="`cartao-pokemon bg-${pokemon.type}`" v-for="pokemon in pokemons" :key="pokemon.id" @click="analyzePokemon(pokemon)">
               <h1>{{ pokemon.id }} {{ pokemon.name }}</h1>
               <span>{{ pokemon.type }}</span>
               <div class="cartao-pokemon-img">
@@ -96,6 +96,7 @@ export default {
   data: () => ({
     display: false,
     displayEvolution: false,
+    pokemon: {},
     pokemons: [
       { id: 1, name: 'Bulbasaur', type: 'grama', image: '001.png', evolutions: [2,3] },
       { id: 2, name: 'Ivysaur', type: 'grama', image: '002.png', evolutions: [3] },
@@ -124,6 +125,16 @@ export default {
 
     hideDisplayEvolution(){
       this.displayEvolution = false;
+    },
+
+    analyzePokemon(pokemon){
+      if((this.pokemon.id !== pokemon.id) && this.display){
+        setTimeout(() => {
+          this.analyzePokemon(pokemon);
+        }, 1000);
+      }
+      this.pokemon = pokemon;
+      this.display = !this.display;
     },
 
     beforeEnter(el){
