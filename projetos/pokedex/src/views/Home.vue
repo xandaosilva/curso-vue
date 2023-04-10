@@ -48,8 +48,14 @@
             </div>
           </div>
           <div class="card-footer">
-            <nav class="nav nav-pills nav-fill"></nav>
-            <div class="detalhes"></div>
+            <nav class="nav nav-pills nav-fill">
+              <router-link class="nav-item nav-link text-white" :to="{ path: '/sobre' }" exact-active-class="active">Sobre</router-link>
+              <router-link class="nav-item nav-link text-white" :to="{ path: '/status' }" exact-active-class="active">Status</router-link>
+              <router-link class="nav-item nav-link text-white" :to="{ path: '/habilidades' }" exact-active-class="active">Habilidades</router-link>
+            </nav>
+            <div class="detalhes">
+              <router-view></router-view>
+            </div>
           </div>
         </div>
       </div>
