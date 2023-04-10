@@ -9,6 +9,14 @@
               <transition>
                 <img src="@/assets/imgs/pokemons/001.png" v-if="display">
               </transition>
+              <div class="evolucoes">
+                <transition>
+                  <img src="@/assets/imgs/pokemons/003.png" v-if="display">
+                </transition>
+                <transition>
+                  <img src="@/assets/imgs/pokemons/002.png" v-if="display">
+                </transition>
+              </div>
             </div>
           </div>
           <div class="card-footer">
@@ -163,6 +171,20 @@ body {
 
 .detalhes {
   margin: 20px 30px 20px 30px;
+}
+
+.evolucoes{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 70px;
+}
+
+.evolucoes img{
+  cursor: pointer;
+  max-width: 100%;
+  max-height: 100%;
+  float: right;
 }
 
 /* .v-enter-from{
