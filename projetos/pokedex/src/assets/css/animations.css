@@ -43,3 +43,40 @@
 .zoom-enter-to, .zoom-leave-from{
     transform: scale(1);
 }
+
+/* Flip */
+.flip-enter-active{
+    animation: flip 2s;
+}
+
+.flip-leave-active{
+    animation: flip 2s reverse;
+}
+
+@keyframes flip {
+    from{
+        transform: rotateY(-80deg);
+    }
+
+    to{
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes flipCustom {
+    0%{
+        transform: rotateY(-80deg);
+    }
+
+    25%{
+        transform: rotateY(-75deg);
+    }
+
+    50%{
+        transform: rotateY(-25deg);
+    }
+
+    100%{
+        transform: rotateY(0deg);
+    }
+}
