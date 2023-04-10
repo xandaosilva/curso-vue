@@ -6,7 +6,8 @@
           <div class="card-header"></div>
           <div class="card-body bg-pokebola bg-normal">
             <div class="pokemon">
-              <transition name="jump">
+              <!-- <transition name="jump" type="animation"> -->
+              <transition name="jump" :duration="{ enter: 2000, leave: 1000 }">
                 <img src="@/assets/imgs/pokemons/001.png" v-if="display">
               </transition>
               <div class="evolucoes">
