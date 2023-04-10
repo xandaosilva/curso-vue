@@ -16,7 +16,19 @@
                 leave-active-class="transition"
                 leave-to-class="leave-final-state"
               > -->
-              <transition 
+              <!-- <transition 
+                enter-active-class="animate__animated animate__bounceIn"
+                leave-active-class="animate__animated animate__bounceOut"
+              > -->
+              <transition
+                @before-enter="beforeEnter"
+                @enter="enter"
+                @after-enter="afterEnter"
+                @enter-cancelled="enterCancelld"
+                @before-leave="beforeLeave"
+                @leave="leave"
+                @after-leave="afterLeave"
+                @leave-cancelled="leaveCancelld"
                 enter-active-class="animate__animated animate__bounceIn"
                 leave-active-class="animate__animated animate__bounceOut"
               >
@@ -78,6 +90,41 @@ export default {
   data: () => ({
     display: false
   }),
+  methods:{
+    beforeEnter(el){
+      console.log("Antes da entrada.", el);
+    },
+
+    enter(el, done){
+      console.log("Durante a entrada.", el);
+      done();
+    },
+
+    afterEnter(el){
+      console.log("Após a entrada.", el);
+    },
+
+    enterCancelld(el){
+      console.log("Entrada cancelada.", el);
+    },
+
+    beforeLeave(el){
+      console.log("Antes da saída.", el);
+    },
+
+    leave(el,done){
+      console.log("Saída.", el);
+      done();
+    },
+
+    afterLeave(el){
+      console.log("Depois da saída.", el);
+    },
+
+    leaveCancelld(el){
+      console.log("Saída cancelada.", el);
+    }
+  }
 }
 </script>
 
