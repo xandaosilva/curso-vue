@@ -165,7 +165,7 @@ body {
   margin: 20px 30px 20px 30px;
 }
 
-.v-enter-from{
+/* .v-enter-from{
   opacity: 0;
 }
 
@@ -187,6 +187,34 @@ body {
 
 .v-leave-to{
   opacity: 0;
+} */
+
+.v-enter-from{
+  opacity: 0;
+  transform: translateX(-150px);
+}
+
+.v-enter-active{
+  transition: all 2s;
+}
+
+.v-enter-to{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.v-leave-from{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.v-leave-active{
+  transition: all 2s;
+}
+
+.v-leave-to{
+  opacity: 0;
+  transform: translateX(150px);
 }
 
 </style>
