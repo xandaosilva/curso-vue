@@ -54,7 +54,11 @@
               <router-link class="nav-item nav-link text-white" :to="{ path: '/habilidades' }" exact-active-class="active">Habilidades</router-link>
             </nav>
             <div class="detalhes">
-              <router-view></router-view>
+              <router-view v-slot="{ Component }">
+                <transition enter-active-class="animate__animated animate__zoomInDown">
+                  <component :is="Component" />
+                </transition>
+              </router-view>
             </div>
           </div>
         </div>
