@@ -1,8 +1,13 @@
 <template>
     <div>
-        <p>Identificador: {{ pokemon.id }}</p>
-        <p>Nome: {{ pokemon.name }}</p>
-        <p>Tipo: {{ pokemon.type }}</p>
+        <div v-if="!pokemon.id">
+            Selecione um pokémon
+        </div>
+        <div v-else>
+            <p>Identificador: {{ pokemon.id }}</p>
+            <p>Nome: {{ pokemon.name }}</p>
+            <p>Tipo: {{ pokemon.type }}</p>
+        </div>
     </div>
 </template>
 

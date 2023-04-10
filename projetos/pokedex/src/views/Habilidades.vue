@@ -1,16 +1,21 @@
 <template>
     <div>
-        <table class="table text-white">
-            <tbody>
-                <tr v-for="(skill, index) in pokemon.skills" :key="index">
-                    <td>{{ skill }}</td>
-                    <td class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-danger btn-sm">x</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <input type="text" class="form-control" placeholder="Adicionar habilidade">
+        <div v-if="!pokemon.id">
+            Selecione um pokémon
+        </div>
+        <div v-else>
+            <table class="table text-white">
+                <tbody>
+                    <tr v-for="(skill, index) in pokemon.skills" :key="index">
+                        <td>{{ skill }}</td>
+                        <td class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-danger btn-sm">x</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="text" class="form-control" placeholder="Adicionar habilidade">
+        </div>
     </div>
 </template>
 
