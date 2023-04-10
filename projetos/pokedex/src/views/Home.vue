@@ -75,6 +75,8 @@ body {
 </style>
 
 <style scoped>
+@import "~@/assets/css/animations.css";
+
 .pokedex {
   padding: 20px;
   background-color: #ffffff;
@@ -185,58 +187,6 @@ body {
   max-width: 100%;
   max-height: 100%;
   float: right;
-}
-
-.fade-enter-from{
-  opacity: 0;
-}
-
-.fade-enter-active{
-  transition: opacity 2s;
-}
-
-.fade-enter-to{
-  opacity: 1;  
-}
-
-.fade-leave-from{
-  opacity: 1;
-}
-
-.fade-leave-active{
-  transition: opacity 2s;
-}
-
-.fade-leave-to{
-  opacity: 0;
-}
-
-.slide-enter-from{
-  opacity: 0;
-  transform: translateX(-150px);
-}
-
-.slide-enter-active{
-  transition: all 2s;
-}
-
-.slide-enter-to{
-  opacity: 1;
-  transform: translateX(0px);
-}
-
-.slide-leave-from{
-  opacity: 1;
-  transform: translateX(0px);
-}
-
-.slide-leave-active{
-  transition: all 2s;
-}
-
-.slide-leave-to{
-  opacity: 0;
-  transform: translateX(150px);
 }
 
 </style>
