@@ -6,12 +6,14 @@
         <div v-else>
             <table class="table text-white">
                 <tbody>
-                    <tr v-for="(skill, index) in pokemon.skills" :key="index">
-                        <td>{{ skill }}</td>
-                        <td class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-danger btn-sm" @click="$emit('handleRemoveSkill', index)">x</button>
-                        </td>
-                    </tr>
+                    <transition-group name="list">
+                        <tr v-for="(skill, index) in pokemon.skills" :key="skill">
+                            <td>{{ skill }}</td>
+                            <td class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-danger btn-sm" @click="$emit('handleRemoveSkill', index)">x</button>
+                            </td>
+                        </tr>
+                    </transition-group>
                 </tbody>
             </table>
             <input type="text" class="form-control" placeholder="Adicionar habilidade" v-model="skillPokemon" @keyup.enter="handleAddSkill">
