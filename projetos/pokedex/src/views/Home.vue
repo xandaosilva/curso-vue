@@ -54,7 +54,7 @@
               <router-link class="nav-item nav-link text-white" :to="{ path: '/habilidades' }" exact-active-class="active">Habilidades</router-link>
             </nav>
             <div class="detalhes">
-              <router-view v-slot="{ Component }" :pokemon="pokemon">
+              <router-view v-slot="{ Component }" :pokemon="pokemon" @handleAddSkill="handleAddSkill" @handleRemoveSkill="handleRemoveSkill">
                 <transition enter-active-class="animate__animated animate__zoomInDown">
                   <component :is="Component" />
                 </transition>
@@ -140,6 +140,18 @@ export default {
 
       if(!this.display && !changePokemonAnalyzed){
         this.pokemon = {};
+      }
+    },
+
+    handleAddSkill(skill){
+      if(this.pokemon.skills){
+        this.pokemon.skills.push(skill);
+      }
+    },
+
+    handleRemoveSkill(index){
+      if(this.pokemon.skills[index]){
+        this.pokemon.skills.splice(index, 1);
       }
     },
 
