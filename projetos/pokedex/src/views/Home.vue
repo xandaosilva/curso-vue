@@ -76,6 +76,7 @@
               <option value="1">Id crescente</option>
               <option value="2">Id decrescrente</option>
               <option value="3">De A - Z</option>
+              <option value="4">De Z - A ( com localeCompare )</option>
             </select>
           </div>
           <div class="col">
@@ -145,6 +146,12 @@ export default {
             return -1;
           }
           return 0;
+        });
+      }
+      
+      if(newValue === "4"){
+        this.pokemons.sort((nextValue, current) => {
+          return current.name.localeCompare(nextValue.name);
         });
       }
     }
