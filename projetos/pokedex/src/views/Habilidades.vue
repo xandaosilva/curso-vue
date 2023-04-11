@@ -7,7 +7,7 @@
             <table class="table text-white">
                 <tbody>
                     <transition-group name="list">
-                        <tr v-for="(skill, index) in pokemon.skills" :key="skill">
+                        <tr v-for="(skill, index) in skillsOrdered" :key="skill">
                             <td>{{ skill }}</td>
                             <td class="d-flex justify-content-end">
                                 <button type="button" class="btn btn-danger btn-sm" @click="$emit('handleRemoveSkill', index)">x</button>
@@ -34,6 +34,12 @@ export default{
         handleAddSkill(){
             this.$emit("handleAddSkill", this.skillPokemon);
             this.skillPokemon = "";
+        }
+    },
+    computed:{
+        skillsOrdered(){
+            let skills = this.pokemon.skills;
+            return skills.sort();
         }
     }
 }
