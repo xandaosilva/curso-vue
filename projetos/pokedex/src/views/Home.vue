@@ -85,15 +85,17 @@
         </div>
         <div class="row">
           <div class="pokedex-catalogo">
-            <div :class="`cartao-pokemon bg-${pokemon.type}`" v-for="pokemon in pokemons" :key="pokemon.id" @click="analyzePokemon(pokemon)">
-              <h1>{{ pokemon.id }} {{ pokemon.name }}</h1>
-              <span>{{ pokemon.type }}</span>
-              <div class="cartao-pokemon-img">
-                <transition enter-active-class="animate__animated animate__fadeInDown" appear>
-                  <img :src="require(`@/assets/imgs/pokemons/${pokemon.image}`)">
-                </transition>
+            <transition-group name="ordination">
+              <div :class="`cartao-pokemon bg-${pokemon.type}`" v-for="pokemon in pokemons" :key="pokemon.id" @click="analyzePokemon(pokemon)">
+                <h1>{{ pokemon.id }} {{ pokemon.name }}</h1>
+                <span>{{ pokemon.type }}</span>
+                <div class="cartao-pokemon-img">
+                  <transition enter-active-class="animate__animated animate__fadeInDown" appear>
+                    <img :src="require(`@/assets/imgs/pokemons/${pokemon.image}`)">
+                  </transition>
+                </div>
               </div>
-            </div>
+            </transition-group>
           </div>
         </div>
       </div>

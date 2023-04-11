@@ -164,3 +164,8 @@
 .list-move{
     transition: all 1s;
 }
+
+/* Transition-group to ordination filter */
+.ordination-move{
+    transition: all 2s;
+}
