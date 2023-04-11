@@ -80,7 +80,8 @@
             </select>
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="Pesquisar pokémon">
+            <input type="text" class="form-control" placeholder="Pesquisar pokémon na tecla Enter" v-model="namePokemon" @keyup.enter="filterPokemonsByName">
+            <input type="text" class="form-control" placeholder="Pesquisar pokémon com watch" v-model="namePokemonDynamic">
           </div>
         </div>
         <div class="row">
@@ -111,7 +112,9 @@ export default {
     displayEvolution: false,
     pokemon: {},
     pokemons: [],
-    ordination: ""
+    ordination: "",
+    namePokemon: "",
+    namePokemonDynamic: ""
   }),
   watch:{
     ordination(newValue){
@@ -156,6 +159,13 @@ export default {
           return current.name.localeCompare(nextValue.name);
         });
       }
+    },
+    namePokemonDynamic(newValue){
+      fetch(`http://localhost:3000/pokemons?name_like=${newValue}`).then(response => {
+        return response.json();
+      }).then(data => {
+        this.pokemons = data;
+      });
     }
   },
   created(){
@@ -203,6 +213,14 @@ export default {
       if(this.pokemon.skills[index]){
         this.pokemon.skills.splice(index, 1);
       }
+    },
+
+    filterPokemonsByName(){
+      fetch(`http://localhost:3000/pokemons?name_like=${this.namePokemon}`).then(response => {
+        return response.json();
+      }).then(data => {
+        this.pokemons = data;
+      });
     },
 
     beforeEnter(el){
