@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col">
-        <h5><i class="bi-boxes me-2"></i>{{ tituloCustomizado }}</h5>
+        <h5 :class="corTitulo"><i class="bi-boxes me-2"></i>{{ tituloCustomizado }}</h5>
       </div>
     </div>
     <div class="row">
@@ -38,18 +38,26 @@ export default {
   data: () => ({
     titulo: "Configuração da equipe"
   }),
-  computed: mapState({
-    enfermeiro: state => state.equipe.enfermeiro,
-    socorrista: state => state.equipe.socorrista,
-    medico: state => state.equipe.medico,
-    carro: state => state.equipe.carro,
-    telefone: state => state.equipe.telefone,
-    kitDeReanimacao: state => state.equipe.kitDeReanimacao,
-    tituloCustomizado(state){
-      return `${this.titulo}: ${state.equipe.carro}`;
+  computed: {
+    ...mapState({
+      enfermeiro: state => state.equipe.enfermeiro,
+      socorrista: state => state.equipe.socorrista,
+      medico: state => state.equipe.medico,
+      carro: state => state.equipe.carro,
+      telefone: state => state.equipe.telefone,
+      kitDeReanimacao: state => state.equipe.kitDeReanimacao,
+      tituloCustomizado(state){
+        return `${this.titulo}: ${state.equipe.carro}`;
+      }
+    }),
+    corTitulo(){
+      let teste = true;
+      if(teste){
+        return "text-danger";
+      }
+      return "text-primary";
     }
-  })
+  }
   // computed: mapState(['equipe'])
-  
 }
 </script>
