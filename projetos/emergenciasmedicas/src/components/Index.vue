@@ -56,10 +56,6 @@ export default {
         dispatch("fetchProfissionais");
       }
     })
-    // ...mapActions({
-    //   fetchEquipamentos: "fetchEquipamentos", 
-    //   fetchProfissionais: "fetchProfissionais"
-    // })
   },
   created(){
     this.fetchEquipamentos({
@@ -68,13 +64,6 @@ export default {
       kitsDeReanimacao: true
     });
     this.fetchProfissionais();
-    // this.$store.dispatch({
-    //   type: "fetchEquipamentos",
-    //   carros: true,
-    //   telefones: true,
-    //   kitsDeReanimacao: true
-    // });
-    // this.$store.dispatch("fetchProfissionais");
   }
 }
 </script>
