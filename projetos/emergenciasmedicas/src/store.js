@@ -62,11 +62,11 @@ export default new Vuex.Store({
         }
     },
     actions:{
-        fetchEquipamentos(context){
+        fetchEquipamentos(context, { carros, telefones, kitsDeReanimacao }){
             fetch("http://localhost:3000/equipamentos").then(response => response.json()).then(dados => {
-                context.commit("setCarros", dados.carros);
-                context.commit("setTelefones", dados.telefones);
-                context.commit("setKitsDeReanimacao", dados.kitsDeReanimacao);
+                if(carros) context.commit("setCarros", dados.carros);
+                if(telefones) context.commit("setTelefones", dados.telefones);
+                if(kitsDeReanimacao) context.commit("setKitsDeReanimacao", dados.kitsDeReanimacao);
             });
 
         },

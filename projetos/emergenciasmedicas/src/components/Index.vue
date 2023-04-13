@@ -50,7 +50,12 @@ export default {
     ...mapMutations(["setEnfermeiros", "setSocorristas", "setMedicos"]),
   },
   created(){
-    this.$store.dispatch("fetchEquipamentos");
+    this.$store.dispatch({
+      type: "fetchEquipamentos",
+      carros: true,
+      telefones: true,
+      kitsDeReanimacao: true
+    });
     this.$store.dispatch("fetchProfissionais");
   }
 }
