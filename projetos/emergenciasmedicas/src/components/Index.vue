@@ -29,10 +29,11 @@
 </template>
 
 <script>
-import ConfiguracaoEquipe from './ConfiguracaoEquipe.vue'
-import Equipamentos from './Equipamentos.vue'
-import Equipes from './Equipes.vue'
-import Profissionais from './Profissionais.vue'
+import { mapMutations } from 'vuex';
+import ConfiguracaoEquipe from './ConfiguracaoEquipe.vue';
+import Equipamentos from './Equipamentos.vue';
+import Equipes from './Equipes.vue';
+import Profissionais from './Profissionais.vue';
 
 export default {
   components: { 
@@ -44,6 +45,17 @@ export default {
   name: 'Index',
   props: {
     msg: String
+  },
+  methods:{
+    ...mapMutations(["setEnfermeiros", "setSocorristas", "setMedicos", "setCarros", "setTelefones", "setKitsDeReanimacao"]),
+  },
+  created(){
+    fetch("http://localhost:3000/enfermeiros").then(response => response.json()).then(dados => this.setEnfermeiros(dados));
+    fetch("http://localhost:3000/socorristas").then(response => response.json()).then(dados => this.setSocorristas(dados));
+    fetch("http://localhost:3000/medicos").then(response => response.json()).then(dados => this.setMedicos(dados));
+    fetch("http://localhost:3000/equipamentos").then(response => response.json()).then(dados => this.setCarros(dados));
+    fetch("http://localhost:3000/equipamentos").then(response => response.json()).then(dados => this.setTelefones(dados));
+    fetch("http://localhost:3000/equipamentos").then(response => response.json()).then(dados => this.setKitsDeReanimacao(dados));
   }
 }
 </script>
