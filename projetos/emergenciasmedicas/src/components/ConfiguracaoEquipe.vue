@@ -22,7 +22,7 @@
         </div>
         <div class="row mt-3">
           <div class="col">
-            <button type="button" class="btn btn-primary">Montar equipe</button>
+            <button type="button" class="btn btn-primary" @click="montarEquipe">Montar equipe</button>
           </div>
         </div>              
       </div>
@@ -46,8 +46,8 @@ export default {
       carro: state => state.equipe.carro,
       telefone: state => state.equipe.telefone,
       kitDeReanimacao: state => state.equipe.kitDeReanimacao,
-      tituloCustomizado(state){
-        return `${this.titulo}: ${state.equipe.carro}`;
+      tituloCustomizado(){
+        return `${this.titulo}`;
       }
     }),
     corTitulo(){
@@ -66,7 +66,12 @@ export default {
       }
       return "indefinida.png";
     }
+  },
+  methods:{
+    montarEquipe(){
+      let equipe = Object.assign({}, this.$store.state.equipe);
+      this.$store.commit("adicionarEquipeEmEquipes", equipe);
+    }
   }
-  // computed: mapState(['equipe'])
 }
 </script>
