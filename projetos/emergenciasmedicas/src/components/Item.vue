@@ -32,31 +32,7 @@ export default {
         adicionarItemEquipe(){
             let item = { tipo: this.tipo, dados: this.dados };
             this.setItemEquipeComVerificacao(item);
-
-            // ex 01
-            // this.$store.commit("setItemEquipe", item);
-            
-            // ex 02
-            // this.$store.commit({
-            //     type: "setItemEquipe",
-            //     item
-            // });
-            
-            // ex 03
-            // this.setItemEquipe(item);
         }
-        // Maneira incorreta
-        // adicionarItemEquipe(){
-        //     let t = this.tipo;
-        //     let d = this.dados;
-
-        //     t === "enfermeiros" ? this.$store.state.equipe.enfermeiro = d.nome : null;
-        //     t === "socorristas" ? this.$store.state.equipe.socorrista = d.nome : null;
-        //     t === "medicos" ? this.$store.state.equipe.medico = d.nome : null;
-        //     t === "carros" ? this.$store.state.equipe.carro = d.placa : null;
-        //     t === "telefones" ? this.$store.state.equipe.telefone = d.telefone : null;
-        //     t === "kits-de-reanimacao" ? this.$store.state.equipe.kitDeReanimacao = d.kit : null;
-        // }
     }
 }
 </script>
