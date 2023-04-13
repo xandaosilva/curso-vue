@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapActions } from 'vuex';
 import ConfiguracaoEquipe from './ConfiguracaoEquipe.vue';
 import Equipamentos from './Equipamentos.vue';
 import Equipes from './Equipes.vue';
@@ -48,15 +48,33 @@ export default {
   },
   methods:{
     ...mapMutations(["setEnfermeiros", "setSocorristas", "setMedicos"]),
+    ...mapActions({
+      fetchEquipamentos: (dispatch, payload) => {
+        dispatch("fetchEquipamentos", payload);
+      }, 
+      fetchProfissionais: (dispatch) => {
+        dispatch("fetchProfissionais");
+      }
+    })
+    // ...mapActions({
+    //   fetchEquipamentos: "fetchEquipamentos", 
+    //   fetchProfissionais: "fetchProfissionais"
+    // })
   },
   created(){
-    this.$store.dispatch({
-      type: "fetchEquipamentos",
+    this.fetchEquipamentos({
       carros: true,
       telefones: true,
       kitsDeReanimacao: true
     });
-    this.$store.dispatch("fetchProfissionais");
+    this.fetchProfissionais();
+    // this.$store.dispatch({
+    //   type: "fetchEquipamentos",
+    //   carros: true,
+    //   telefones: true,
+    //   kitsDeReanimacao: true
+    // });
+    // this.$store.dispatch("fetchProfissionais");
   }
 }
 </script>
