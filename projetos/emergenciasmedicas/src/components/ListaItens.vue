@@ -8,7 +8,7 @@
                 <option value="noite">Noite</option>
             </select>
         </div>
-        <item v-for="(item, indice) in itens" :key="indice" :dados="item" />
+        <item v-for="(item, indice) in itens" :key="indice" :dados="item" :tipo="tipo" />
         <hr>
         <div v-if="tipo === 'socorristas'">Total {{ totalSocorristasPorTurno(turno) }}</div>
     </div>
