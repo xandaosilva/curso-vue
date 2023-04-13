@@ -50,12 +50,8 @@ export default {
     ...mapMutations(["setEnfermeiros", "setSocorristas", "setMedicos"]),
   },
   created(){
-    fetch("http://localhost:3000/enfermeiros").then(response => response.json()).then(dados => this.setEnfermeiros(dados));
-    fetch("http://localhost:3000/socorristas").then(response => response.json()).then(dados => this.setSocorristas(dados));
-    fetch("http://localhost:3000/medicos").then(response => response.json()).then(dados => this.setMedicos(dados));
-    fetch("http://localhost:3000/equipamentos").then(response => response.json()).then(dados => {
-      this.$store.dispatch("adicionarEquipamentos", dados);
-    });
+    this.$store.dispatch("fetchEquipamentos");
+    this.$store.dispatch("fetchProfissionais");
   }
 }
 </script>
